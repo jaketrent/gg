@@ -2,6 +2,7 @@
   h1 Game
 
   button.btn click="rollDice" Roll
+  button.btn.alt-btn click="resetDice" Reset
 
   h3 Keeping
   ul.dice
