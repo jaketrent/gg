@@ -9,7 +9,11 @@ App.Die = App.Model.extend
       App.Face.create { name: 'H' }
       App.Face.create { name: 'E' }
     ]
+    @roll()
+
+  roll: ->
     @activeFace = @faces[@getRandomInt 0, 5]
+    @
 
   toString: ->
     @activeFace.toString()

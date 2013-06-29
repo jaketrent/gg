@@ -32,7 +32,7 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
 Ember.TEMPLATES["game"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [3,'>= 1.0.0-rc.4'];
 helpers = helpers || Ember.Handlebars.helpers; data = data || {};
-  var buffer = '', stack1, hashTypes, hashContexts, escapeExpression=this.escapeExpression, self=this;
+  var buffer = '', stack1, hashContexts, hashTypes, escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
   
@@ -60,7 +60,13 @@ function program5(depth0,data) {
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   }
 
-  data.buffer.push("<div class=\"game\"><h1>Game</h1><h3>Keeping</h3><ul class=\"dice\">");
+  data.buffer.push("<div class=\"game\"><h1>Game</h1><button class=\"btn\" ");
+  hashContexts = {'on': depth0};
+  hashTypes = {'on': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "rollDice", {hash:{
+    'on': ("click")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Roll</button><h3>Keeping</h3><ul class=\"dice\">");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers.each.call(depth0, "die", "in", "inhold", {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});

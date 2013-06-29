@@ -10,3 +10,6 @@ App.GameController = Ember.ObjectController.extend
     console.log die.toString()
     @get('model.inplay').removeObject die
     @get('model.inhold').pushObject die
+
+  rollDice: ->
+    @set('model.inplay', die.roll() for die in @get('model.inplay'))
