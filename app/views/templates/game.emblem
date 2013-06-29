@@ -4,9 +4,9 @@
   h3 Keeping
   ul.dice
     each die in this.inhold
-      li.die = die
+      App.DieInHoldView contentBinding="die"
 
   h3 Rolling
   ul.dice
     each die in this.inplay
-      App.DieInPlayView contentBinding="this"
+      App.DieInPlayView contentBinding="die"
