@@ -4,5 +4,4 @@
 
   ul.main-nav-list
     li.main-nav-item
-      a.btn.main-nav-link
-        | New Game
+      linkTo 'game' class='btn main-nav-link' | New Game

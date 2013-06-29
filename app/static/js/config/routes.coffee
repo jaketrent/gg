@@ -1,4 +1,7 @@
+App.Router.reopen
+  location: 'history'
+
 window.App.Router.map ->
 
   @route 'home', { path: '/' }
-  @route 'roll', { path: '/roll' }
+  @route 'game', { path: '/roll' }
