@@ -1,6 +1,12 @@
 .game
   h1 Game
 
+  h3 Keeping
   ul.dice
-    each die in this
+    each die in this.inhold
       li.die = die
+
+  h3 Rolling
+  ul.dice
+    each die in this.inplay
+      App.DieInPlayView contentBinding="this"
