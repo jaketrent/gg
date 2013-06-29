@@ -6,5 +6,10 @@
     "node_modules",
     "app/static/js/components"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "~2.0.2",
+    "handlebars": "1.0.0-rc.4",
+    "underscore": "~1.4.4",
+    "fastclick": "~0.6.7"
+  }
 }
