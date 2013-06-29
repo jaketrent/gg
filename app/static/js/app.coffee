@@ -13,6 +13,7 @@
 #= require_tree mixins
 #= require_tree models
 #= require_tree routes
+#= require_tree ../templates
 
 # disable 300ms click delay on mobile devices
 $ ->

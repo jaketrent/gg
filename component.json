@@ -10,6 +10,7 @@
     "jquery": "~2.0.2",
     "handlebars": "1.0.0-rc.4",
     "underscore": "~1.4.4",
-    "fastclick": "~0.6.7"
+    "fastclick": "~0.6.7",
+    "emblem": "latest"
   }
 }
