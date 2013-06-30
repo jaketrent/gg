@@ -3,6 +3,7 @@
 
   button.btn click="rollDice" Roll
   button.btn.alt-btn click="resetDice" Reset
+  p Roll # {{this.rolls}}
 
   h3 Keeping
   ul.dice

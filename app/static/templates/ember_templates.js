@@ -72,7 +72,11 @@ function program5(depth0,data) {
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "resetDice", {hash:{
     'on': ("click")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Reset</button><h3>Keeping</h3><ul class=\"dice\">");
+  data.buffer.push(">Reset</button><p>Roll # ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "rolls", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</p><h3>Keeping</h3><ul class=\"dice\">");
   hashTypes = {};
   hashContexts = {};
   stack1 = helpers.each.call(depth0, "die", "in", "inhold", {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});

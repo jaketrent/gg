@@ -9,3 +9,4 @@ App.GameRoute = Ember.Route.extend
       App.Die.create()
       App.Die.create()
     ]
+    rolls: 0
