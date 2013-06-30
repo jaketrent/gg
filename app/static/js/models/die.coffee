@@ -17,11 +17,10 @@ App.Die = App.Model.extend
     @
 
   calcClassName: ->
-    console.log 'classname'
     if @activeFace?
-      "die icon-die-#{@activeFace.toString()}"
+      "icon-die-#{@activeFace.toString()}"
     else
-      'die'
+      ''
 
   toString: ->
     if @activeFace?
