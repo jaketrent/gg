@@ -6,7 +6,7 @@ Mincer.StylusEngine.registerConfigurator (style) ->
 
 environment = new Mincer.Environment()
 
-for path in ['css', 'js', 'templates']
+for path in ['css', 'js', 'fonts', 'templates']
   fullPath = "#{__dirname}/../static/#{path}"
   environment.appendPath fullPath
 

@@ -9,10 +9,19 @@ App.Die = App.Model.extend
       App.Face.create { name: 'H' }
       App.Face.create { name: 'E' }
     ]
+    @calcClassName()
 
   roll: ->
     @activeFace = @faces[@getRandomInt 0, 5]
+    @className = @calcClassName()
     @
+
+  calcClassName: ->
+    console.log 'classname'
+    if @activeFace?
+      "die icon-die-#{@activeFace.toString()}"
+    else
+      'die'
 
   toString: ->
     if @activeFace?
