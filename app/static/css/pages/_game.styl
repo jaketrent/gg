@@ -1,9 +1,14 @@
 .game
   padding: $base-line-height $col-edge-padding
 
+  .tray
+
   .dice
     reset-list()
     clearfix()
+    min-height: 220px
+    padding: 10px 0 0 10px
+    background: $gray-lighter
 
   .die
     float-left()
@@ -16,3 +21,4 @@
     color: $white
     font-size: 36px
     cursor: pointer
+    border-radius: 9px
