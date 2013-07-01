@@ -1,16 +1,16 @@
 .game
-  h1 Game
+  .game-actions
+    img.game-title src="/img/kingoftokyo.jpg" alt="King of Tokyo"
+    button.btn.game-action-btn click="rollDice" Roll # {{this.rollNum}}
+    button.btn.alt-btn.game-action-btn click="resetDice" Reset
 
-  button.btn click="rollDice" Roll
-  button.btn.alt-btn click="resetDice" Reset
-  p Roll # {{this.rolls}}
+  h3.dice-title Rolling
+  ul.dice
+    each die in this.inplay
+      App.DieInPlayView contentBinding="die"
 
-  h3 Keeping
+  h3.dice-title Keeping
   ul.dice
     each die in this.inhold
       App.DieInHoldView contentBinding="die"
 
-  h3 Rolling
-  ul.dice
-    each die in this.inplay
-      App.DieInPlayView contentBinding="die"

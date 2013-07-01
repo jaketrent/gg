@@ -10,7 +10,7 @@ App.GameController = Ember.ObjectController.extend
 
   rollDice: ->
     @set('model.inplay', die.roll() for die in @get('model.inplay'))
-    @incrementProperty 'model.rolls'
+    @incrementProperty 'model.rollNum'
 
   resetDice: ->
     # todo: figure out how to either
@@ -27,6 +27,6 @@ App.GameController = Ember.ObjectController.extend
         App.Die.create()
         App.Die.create()
       ]
-      rolls: 0
+      rollNum: 1
 
     @set 'model', resetModel

@@ -1,7 +1,25 @@
 .game
-  padding: $base-line-height $col-edge-padding
+  padding: ($base-line-height/2) $col-edge-padding
+  max-width: 570px
+  margin: 0 auto
 
-  .tray
+  .game-title
+    width: 50px
+    float: left
+
+  .game-actions
+    text-align: right
+
+  .game-action-btn
+    display: inline-block
+    width: 100px
+    margin-left: 5px
+
+    &:first-child
+      margin-left: 0
+
+  .dice-title
+    margin: 10px 0 4px 0
 
   .dice
     reset-list()
