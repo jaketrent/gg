@@ -22,8 +22,8 @@ module.exports = (grunt) ->
           root: "app/views/templates/"
           dependencies:
             jquery: "app/static/js/components/jquery/jquery.js"
-            ember: "app/static/js/vendor/ember.js"
-            emblem: "app/static/js/components/emblem/dist/emblem.js"
+            ember: "app/static/js/vendor/ember-1.0.0-rc.1.js"
+            emblem: "app/static/js/vendor/emblem-0.2.9.js"
             handlebars: "app/static/js/components/handlebars/handlebars.js"
 
   matchdep.filterDev('grunt-*').forEach grunt.loadNpmTasks
