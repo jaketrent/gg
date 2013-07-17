@@ -1,7 +1,7 @@
 App.GameController = Ember.ObjectController.extend
 
   toggleDieHold: (die) ->
-    @get('model.dice').removeObject die
+    die.toggleHold()
 
   rollDice: ->
     @set('model.dice', die.roll() for die in @get('model.dice'))

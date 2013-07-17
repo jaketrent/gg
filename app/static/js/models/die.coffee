@@ -10,11 +10,17 @@ App.Die = App.Model.extend
       App.Face.create { name: 'E' }
     ]
     @calcClassName()
+    @onHold = false
 
   roll: ->
-    @activeFace = @faces[@getRandomInt 0, 5]
-    @className = @calcClassName()
+    if not @onHold
+      @activeFace = @faces[@getRandomInt 0, 5]
+      @className = @calcClassName()
     @
+
+  toggleHold: ->
+    @onHold = !@onHold
+    console.log "togglin: #{@onHold}"
 
   calcClassName: ->
     if @activeFace?
