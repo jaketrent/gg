@@ -11,22 +11,27 @@ App.Die = App.Model.extend
     ]
     @calcClassName()
     @onHold = false
+    @set 'className', 'die'
 
   roll: ->
     if not @onHold
       @activeFace = @faces[@getRandomInt 0, 5]
-      @className = @calcClassName()
+      @calcClassName()
     @
 
   toggleHold: ->
     @onHold = !@onHold
-    console.log "togglin: #{@onHold}"
+    @calcClassName()
 
   calcClassName: ->
+    classNames = 'die'
     if @activeFace?
-      "icon-die-#{@activeFace.toString()}"
-    else
-      ''
+      classNames += " icon-die-#{@activeFace.toString()}"
+
+    if @onHold
+      classNames += " is-onhold"
+
+    @set 'className', classNames
 
   toString: ->
     if @activeFace?

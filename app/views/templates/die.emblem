@@ -1,1 +1,1 @@
-li class="die {{unbound die.className}}"
+li class=die.className

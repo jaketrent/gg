@@ -19,10 +19,12 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   var buffer = '', hashTypes, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<li class=\"die ");
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers.unbound.call(depth0, "die.className", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\"></li>");
+  data.buffer.push("<li ");
+  hashTypes = {'class': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'class': ("die.className")
+  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
+  data.buffer.push("></li>");
   return buffer;
   
 });
