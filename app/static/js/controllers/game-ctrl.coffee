@@ -2,14 +2,14 @@ App.GameController = Ember.ObjectController.extend
 
   putDieInPlay: (die) ->
     @get('model.inhold').removeObject die
-    @get('model.inplay').pushObject die
+    @get('model.dice').pushObject die
 
   putDieInHold: (die) ->
-    @get('model.inplay').removeObject die
+    @get('model.dice').removeObject die
     @get('model.inhold').pushObject die
 
   rollDice: ->
-    @set('model.inplay', die.roll() for die in @get('model.inplay'))
+    @set('model.dice', die.roll() for die in @get('model.dice'))
     @incrementProperty 'model.rollNum'
 
   resetDice: ->
@@ -19,7 +19,7 @@ App.GameController = Ember.ObjectController.extend
     # so that this initial setup format is not in 2 locations
     resetModel =
       inhold: []
-      inplay: [
+      dice: [
         App.Die.create()
         App.Die.create()
         App.Die.create()

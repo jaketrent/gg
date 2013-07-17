@@ -1,7 +1,7 @@
 App.GameRoute = Ember.Route.extend
   model: ->
     inhold: []
-    inplay: [
+    dice: [
       App.Die.create()
       App.Die.create()
       App.Die.create()
