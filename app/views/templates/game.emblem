@@ -7,4 +7,4 @@
   h3.dice-title Rolling
   ul.dice
     each die in this.dice
-      App.DieInPlayView contentBinding="die"
+      App.DieView contentBinding="die"

@@ -36,7 +36,7 @@ function program1(depth0,data) {
   
   var hashTypes;
   hashTypes = {'contentBinding': "STRING"};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.DieInPlayView", {hash:{
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.DieView", {hash:{
     'contentBinding': ("die")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   }
