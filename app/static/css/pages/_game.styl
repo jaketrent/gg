@@ -29,6 +29,7 @@
 
   .die
     float-left()
+    position: relative
     background: $gray
     height: 83px
     width: @height
@@ -44,3 +45,18 @@
       border: 6px solid $green
       height: 71px
       width: @height
+      line-height: @height
+
+      &:after
+        content: 'Hold'
+        position: absolute
+        bottom: 5px
+        left: 0
+        display: block
+        width: 100%
+        text-align: center
+        color: $green
+        text-transfrom: uppercase
+        font-size: 12px
+        line-height: 1em
+
