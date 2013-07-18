@@ -2,6 +2,6 @@ App.Player = App.Model.extend
 
   init: ->
     @score = 0
-    @name = "Player"
+    # @name from constructor
 
 

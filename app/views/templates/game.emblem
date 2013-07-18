@@ -2,9 +2,9 @@
   .game-actions
     img.game-title src="/img/kingoftokyo.jpg" alt="King of Tokyo"
     button.btn.game-action-btn click="rollDice" Roll # {{this.rollNum}}
-    button.btn.alt-btn.game-action-btn click="resetDice" Reset
+    button.btn.alt-btn.game-action-btn click="endTurn" End Turn
 
-  h3.dice-title Players: #{this.players.length}
+  h3.dice-title Turn: #{this.currentPlayer.name}
   ul.dice
     each die in this.dice
       App.DieView contentBinding="die"
