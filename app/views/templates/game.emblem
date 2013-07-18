@@ -4,7 +4,7 @@
     button.btn.game-action-btn click="rollDice" Roll # {{this.rollNum}}
     button.btn.alt-btn.game-action-btn click="resetDice" Reset
 
-  h3.dice-title Rolling
+  h3.dice-title Players: #{this.players.length}
   ul.dice
     each die in this.dice
       App.DieView contentBinding="die"

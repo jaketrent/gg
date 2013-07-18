@@ -10,6 +10,7 @@
 #= require_tree helpers
 #= require_tree mixins
 #= require models/model
+#= require models/player
 #= require_tree models
 #= require_tree controllers
 #= require_tree routes
