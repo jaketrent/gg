@@ -8,6 +8,7 @@ App.Game = App.Model.extend
 
   endTurn: ->
     @score()
+    @countEnergy()
     @resetDice()
     @nextPlayer()
 
@@ -51,7 +52,13 @@ App.Game = App.Model.extend
     console.log "add score: #{score}"
     @set 'currentPlayer.score', @get('currentPlayer.score') + score
 
-
+  # TODO: convert to generic rule
+  countEnergy: ->
+    energy = 0
+    for die in @get 'dice'
+      if die.isEnergy()
+        ++energy
+    @set 'currentPlayer.energy', @get('currentPlayer.energy') + energy
 
 
 

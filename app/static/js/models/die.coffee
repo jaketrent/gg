@@ -39,4 +39,7 @@ App.Die = App.Model.extend
     else
       ''
   isNumber: ->
-    @activeFace.isNumber()
+    @activeFace?.isNumber()
+
+  isEnergy: ->
+    @activeFace?.isEnergy()

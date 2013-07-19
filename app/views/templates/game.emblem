@@ -9,7 +9,7 @@
     each die in this.dice
       App.DieView contentBinding="die"
 
-  h3.dice-title Scores
+  h3.dice-title Stats
   ul.players-list
     each player in this.players
-      li.players-item #{player.name}: #{player.score}
+      li.players-item #{player.name} - Score: #{player.score}, Energy: #{player.energy}
