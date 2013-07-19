@@ -4,12 +4,14 @@
    - players have cards have rules
 ###
 
+###
+  Concept of
+  - Overriding a base rule?
+###
 
 App.Rule = App.Model.extend
 
   priority: 1
-
-  phase: 'end' # phases: roll, resolve, cards, end
 
   applies: (game) ->
     false

@@ -19,6 +19,11 @@ App.Die = App.Model.extend
       @calcClassName()
     @
 
+  setActiveFace: (faceName) ->
+    foundFace = _.find @get('faces'), (face) ->
+      face.name is faceName
+    @set 'activeFace', foundFace
+
   toggleHold: ->
     @onHold = !@onHold
     @calcClassName()

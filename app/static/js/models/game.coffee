@@ -1,21 +1,41 @@
 App.Game = App.Model.extend
 
   init: ->
+    @states = {}
+    @rules = [
+      App.DiceScoreRule.create()
+    ]
     @resetDice()
     @players = (App.Player.create { name: "Player #{num}" } for num in [1..2])
     @set 'currentPlayerIndx', 0
     @set 'currentPlayer', @players[@get 'currentPlayerIndx']
 
   endTurn: ->
-    @score()
+    console.log 'end turn'
+    @set 'states.phase', 'end'
+    @processRules()
+    # @score()
     @countEnergy()
     @resetDice()
     @nextPlayer()
+
+  processRules: ->
+    console.log 'processing'
+    for rule in @rules
+      console.log rule
+      if rule.applies @
+        rule.exec @
 
   resetDice: ->
     # TODO: move to player
     @set 'dice', (App.Die.create() for num in [1..6])
     @set 'rollNum', 1
+
+  setDice: (faceNames) ->
+    dice = @get 'dice'
+    for faceName, i in faceNames
+      dice[i].setActiveFace faceName
+    @set 'dice', dice
 
   nextPlayer: ->
     indx = @get 'currentPlayerIndx'
