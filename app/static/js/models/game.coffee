@@ -3,6 +3,8 @@ App.Game = App.Model.extend
   init: ->
     @states = {}
     @rules = [
+      App.DiceAttackRule.create()
+      App.DiceHealthRule.create()
       App.DiceScoreRule.create()
       App.DiceEnergyRule.create()
     ]
@@ -41,3 +43,5 @@ App.Game = App.Model.extend
       @set 'currentPlayerIndx', 0
     @set 'currentPlayer', @players[@get 'currentPlayerIndx']
 
+  getNonCurrentPlayers: ->
+    player for player, i in @get('players') when i isnt @get 'currentPlayerIndx'

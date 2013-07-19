@@ -48,3 +48,9 @@ App.Die = App.Model.extend
 
   isEnergy: ->
     @activeFace?.isEnergy()
+
+  isHealth: ->
+    @activeFace?.isHealth()
+
+  isAttack: ->
+    @activeFace?.isAttack()

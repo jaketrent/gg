@@ -7,5 +7,11 @@ App.Face = App.Model.extend
   isEnergy: ->
     @name is "E"
 
+  isHealth: ->
+    @name is "H"
+
+  isAttack: ->
+    @name is "A"
+
   toString: ->
     @name

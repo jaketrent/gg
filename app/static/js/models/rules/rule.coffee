@@ -6,7 +6,8 @@
 
 ###
   Concept of
-  - Overriding a base rule?
+  - Overriding a base rule? - perhaps extend rule it overrides
+    - how to take base rule out of ruleset
 ###
 
 App.Rule = App.Model.extend

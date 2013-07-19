@@ -12,4 +12,4 @@
   h3.dice-title Stats
   ul.players-list
     each player in this.players
-      li.players-item #{player.name} - Score: #{player.score}, Energy: #{player.energy}
+      li.players-item #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}
