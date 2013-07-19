@@ -4,6 +4,7 @@ App.Player = App.Model.extend
     @health = 10
     @score = 0
     @energy = 0
+    @isInTokyo = false
     # @name from constructor
 
   receiveAttack: (attack) ->

@@ -7,6 +7,7 @@ App.Game = App.Model.extend
       App.DiceHealthRule.create()
       App.DiceScoreRule.create()
       App.DiceEnergyRule.create()
+      App.DiceEnterTokyoRule.create()
     ]
     @resetDice()
     @players = (App.Player.create { name: "Player #{num}" } for num in [1..2])
@@ -42,6 +43,10 @@ App.Game = App.Model.extend
     else
       @set 'currentPlayerIndx', 0
     @set 'currentPlayer', @players[@get 'currentPlayerIndx']
+    @set 'states.phase', 'roll'
 
   getNonCurrentPlayers: ->
     player for player, i in @get('players') when i isnt @get 'currentPlayerIndx'
+
+  isPlayerInTokyo: ->
+    (player for player in @get('players') when player.get 'isInTokyo').length > 0
