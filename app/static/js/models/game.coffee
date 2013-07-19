@@ -59,3 +59,6 @@ App.Game = App.Model.extend
 
   getNumAttackRolled: ->
     (die for die in @get('dice') when die.isAttack()).length
+
+  isAttackRolled: ->
+    @getNumAttackRolled() > 0

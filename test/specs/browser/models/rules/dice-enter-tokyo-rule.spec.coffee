@@ -15,8 +15,15 @@ describe 'App.DiceEnterTokyoRule', ->
 
   describe '#exec', ->
 
-    it 'puts player in tokyo if attack', ->
+    it 'puts player in tokyo if tokyo is empty and rolled attack', ->
       game.get('currentPlayer').get('isInTokyo').should.be.false
       game.setDice ['1', '2', '3', 'E', 'A', 'H']
       rule.exec game
       game.get('currentPlayer').get('isInTokyo').should.be.true
+
+    it 'has no effect is tokyo is occupied', ->
+      otherPlayer = game.getNonCurrentPlayers()[0]
+      otherPlayer.set 'isInTokyo', true
+      game.setDice ['1', '2', '3', 'E', 'A', 'H']
+      rule.exec game
+      game.get('currentPlayer').get('isInTokyo').should.be.false
