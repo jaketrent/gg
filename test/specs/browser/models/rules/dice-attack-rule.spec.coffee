@@ -19,10 +19,11 @@ describe 'App.DiceAttackRule', ->
       rule.exec game
       player.get('health').should.eql(10) for player in game.get('players')
 
-    it 'attacks all other players', ->
+    it 'if in tokyo, attacks all players outside tokyo', ->
+      game.set 'currentPlayer.isInTokyo', true
       game.setDice ['A', '1', '2', 'A', 'A', 'E']
       rule.exec game
-      player.get('health').should.eql(7) for player in game.getNonCurrentPlayers()
+      player.get('health').should.eql(7) for player in game.getPlayersOutsideTokyo()
 
     it 'doesnt let health go below 0', ->
       player.set('health', 3) for player in game.getNonCurrentPlayers()

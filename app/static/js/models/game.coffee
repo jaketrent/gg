@@ -49,4 +49,13 @@ App.Game = App.Model.extend
     player for player, i in @get('players') when i isnt @get 'currentPlayerIndx'
 
   isPlayerInTokyo: ->
-    (player for player in @get('players') when player.get 'isInTokyo').length > 0
+    @getPlayersInTokyo().length > 0
+
+  getPlayersInTokyo: ->
+    player for player in @get('players') when player.get 'isInTokyo'
+
+  getPlayersOutsideTokyo: ->
+    player for player in @get('players') when not player.get 'isInTokyo'
+
+  getNumAttackRolled: ->
+    (die for die in @get('dice') when die.isAttack()).length

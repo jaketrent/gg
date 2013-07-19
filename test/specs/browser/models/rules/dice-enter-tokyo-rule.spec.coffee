@@ -8,16 +8,10 @@ describe 'App.DiceEnterTokyoRule', ->
 
   describe '#applies', ->
 
-    it 'when end state and tokyo is empty', ->
+    it 'is end state', ->
       rule.applies(game).should.be.false
       game.set 'states.phase', 'end'
       rule.applies(game).should.be.true
-
-    it 'not when someone in tokyo', ->
-      game.set 'states.phase', 'end'
-      game.set 'currentPlayer.isInTokyo', true # wouldnt happen -- just *a* player
-      rule.applies(game).should.be.false
-
 
   describe '#exec', ->
 

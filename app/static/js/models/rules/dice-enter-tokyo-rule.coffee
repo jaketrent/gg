@@ -1,9 +1,8 @@
 App.DiceEnterTokyoRule = App.Rule.extend
 
   applies: (game) ->
-    endPhase = game.get('states.phase') is 'end'
-    emptyTokyo = not game.isPlayerInTokyo()
-    endPhase and emptyTokyo
+    game.get('states.phase') is 'end'
 
   exec: (game) ->
-    game.get('currentPlayer').set 'isInTokyo', true
+    if not game.isPlayerInTokyo() and game.getNumAttackRolled() > 0
+      game.get('currentPlayer').set 'isInTokyo', true
