@@ -8,3 +8,8 @@
   ul.dice
     each die in this.dice
       App.DieView contentBinding="die"
+
+  h3.dice-title Scores
+  ul.players-list
+    each player in this.players
+      li.players-item #{player.name}: #{player.score}

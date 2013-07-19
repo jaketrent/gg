@@ -38,3 +38,5 @@ App.Die = App.Model.extend
       @activeFace.toString()
     else
       ''
+  isNumber: ->
+    @activeFace.isNumber()
