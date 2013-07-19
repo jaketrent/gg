@@ -11,8 +11,6 @@
 
 App.Rule = App.Model.extend
 
-  priority: 1
-
   applies: (game) ->
     false
 
