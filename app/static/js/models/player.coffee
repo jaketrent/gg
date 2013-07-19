@@ -1,6 +1,7 @@
 App.Player = App.Model.extend
 
   init: ->
+    # @abilities = {}
     @health = 10
     @score = 0
     @energy = 0

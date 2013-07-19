@@ -8,9 +8,9 @@ describe 'App.DiceAttackRule', ->
 
   describe '#applies', ->
 
-    it 'in end state', ->
+    it 'in resolve-dice phase', ->
       rule.applies(game).should.be.false
-      game.set 'states.phase', 'end'
+      game.set 'states.phase', 'resolve-dice'
       rule.applies(game).should.be.true
 
   describe '#exec', ->
@@ -30,3 +30,13 @@ describe 'App.DiceAttackRule', ->
       game.setDice ['A', 'A', 'A', 'A', 'A', 'E']
       rule.exec game
       player.get('health').should.eql 0 for player in game.getNonCurrentPlayers()
+
+    # describe 'Attacking into Tokyo', ->
+
+    #   it 'allows player in tokyo to yield tokyo', ->
+    #     otherPlayer = game.getNonCurrentPlayers()[0]
+    #     otherPlayer.set 'isInTokyo', true
+
+        # game.setDice ['A', 'A', 'A', 'A', 'A', 'E']
+        # rule.exec game
+        # player.get('health').should.eql 0 for player in game.getNonCurrentPlayers()

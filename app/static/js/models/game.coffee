@@ -15,7 +15,7 @@ App.Game = App.Model.extend
     @set 'currentPlayer', @players[@get 'currentPlayerIndx']
 
   endTurn: ->
-    @set 'states.phase', 'end'
+    @set 'states.phase', 'resolve-dice'
     @processRules()
     @resetDice()
     @nextPlayer()

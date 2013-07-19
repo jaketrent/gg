@@ -1,7 +1,7 @@
 App.DiceEnergyRule = App.Rule.extend
 
   applies: (game) ->
-    game.get('states.phase') is 'end'
+    game.get('states.phase') is 'resolve-dice'
 
   exec: (game) ->
     energy = 0
