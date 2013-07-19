@@ -9,6 +9,8 @@ App.Rule = App.Model.extend
 
   priority: 1
 
+  phase: 'end' # phases: roll, resolve, cards, end
+
   applies: (game) ->
     false
 

@@ -11,3 +11,7 @@ describe 'App.Rule', ->
   it 'has an exec fn', ->
     rule = App.Rule.create()
     expect(_.isFunction rule.exec).to.be.true
+
+  it 'has a phase for easy filtering', ->
+    rule = App.Rule.create()
+    rule.phase.should.eql 'end'
