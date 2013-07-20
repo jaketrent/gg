@@ -9,9 +9,15 @@ div class=this.className
           .player-avatar
           .player-name #{player.name}
         ul.player-stats-list
-          li.player-stats-item.player-stats-health #{player.health}
-          li.player-stats-item.player-stats-energy #{player.energy}
-          li.player-stats-item.player-stats-score #{player.score}
+          li.player-stats-item
+            .icon.icon-die-H
+            player.health
+          li.player-stats-item
+            .icon.icon-die-E
+            player.energy
+          li.player-stats-item
+            .icon.icon-star
+            player.score
         .player-status
           if player.isInTokyo
             .player-status-intokyo In Tokyo!

@@ -1,0 +1,44 @@
+.players-list
+  clearfix()
+
+  .players-item
+    box-sizing: border-box
+    display: inline-block
+    width: 50%
+    padding: 10px
+
+  .player-header
+    position: relative
+
+  .player-avatar
+    position: absolute
+    left: 0
+    top: 0
+    height: 30px
+    width: @height
+    background-size: cover
+    background-image: image-path('avatar.jpg')
+    background-repeat: no-repeat
+    background-position: center
+    border-radius: 50%
+
+  .player-name
+    padding-left: 40px
+    font-size: 24px
+    line-height: 30px
+
+  .player-stats-item
+    box-sizing: border-box
+    width: 33%
+    padding-right: 5px
+    display: inline-block
+
+  .icon
+    display: inline-block
+
+    &.icon-die-H
+      color: #b82b34
+    &.icon-die-E
+      color: #398247
+    &.icon-star
+      color: #5f648a

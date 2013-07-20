@@ -40,13 +40,13 @@ function program1(depth0,data) {
   data.buffer.push("<li class=\"players-item\"><div class=\"player-header\"><div class=\"player-avatar\"></div><div class=\"player-name\">");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "player.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("</div></div><ul class=\"player-stats-list\"><li class=\"player-stats-item player-stats-health\">");
+  data.buffer.push("</div></div><ul class=\"player-stats-list\"><li class=\"player-stats-item\"><div class=\"icon icon-die-H\"></div>");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "player.health", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("</li><li class=\"player-stats-item player-stats-energy\">");
+  data.buffer.push("</li><li class=\"player-stats-item\"><div class=\"icon icon-die-E\"></div>");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "player.energy", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("</li><li class=\"player-stats-item player-stats-score\">");
+  data.buffer.push("</li><li class=\"player-stats-item\"><div class=\"icon icon-star\"></div>");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "player.score", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("</li></ul><div class=\"player-status\">");
