@@ -19,10 +19,11 @@ App.Game = App.Model.extend
       App.ResetDiceRule.create()
       App.NextPlayerRule.create()
     ]
-    resetDiceRule = App.ResetDiceRule.create().exec @
+    initiallyResetDice = App.ResetDiceRule.create().exec @
     @players = (App.Player.create { name: "Player #{num}" } for num in [1..2])
     @set 'currentPlayerIndx', 0
     @set 'currentPlayer', @players[@get 'currentPlayerIndx']
+    @set 'className', "game start-turn"
 
   nextPhase: ->
     @processRules()
@@ -32,13 +33,9 @@ App.Game = App.Model.extend
       @set 'currentPhase', @phases[indx + 1]
     else
       @set 'currentPhase', @phases[0]
+    @set 'className', "game #{@get('currentPhase')}"
+
     console.log "advanced to phase: #{@get('currentPhase')}"
-
-
-  # endTurn: ->
-  #   # TODO: refactor this phase setting
-  #   @set 'currentPhase', 'resolve-dice'
-  #   @processRules()
 
   processRules: ->
     for rule in @rules
@@ -50,16 +47,6 @@ App.Game = App.Model.extend
     for faceName, i in faceNames
       dice[i].setActiveFace faceName
     @set 'dice', dice
-
-  # nextPlayer: ->
-  #   indx = @get 'currentPlayerIndx'
-  #   if indx < @players.length - 1
-  #     @incrementProperty 'currentPlayerIndx'
-  #   else
-  #     @set 'currentPlayerIndx', 0
-  #   @set 'currentPlayer', @players[@get 'currentPlayerIndx']
-  #   # TODO: refactor this phase setting
-  #   @set 'currentPhase', 'roll'
 
   getNonCurrentPlayers: ->
     player for player, i in @get('players') when i isnt @get 'currentPlayerIndx'

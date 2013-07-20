@@ -1,28 +1,38 @@
-.game
+div class=this.className
   .game-actions
     img.game-title src="/img/kingoftokyo.jpg" alt="King of Tokyo"
     button.btn.game-action-btn click="rollDice" Roll # {{this.rollNum}}
     button.btn.alt-btn.game-action-btn click="nextPhase" Next Phase
 
-  h3.dice-title Turn: #{this.currentPlayer.name}
-  ul.dice
-    each die in this.dice
-      App.DieView contentBinding="die"
+    div.meta Turn: #{this.currentPlayer.name}, Phase: #{this.currentPhase}
 
-  h3.dice-title In Tokyo
-  ul.players-list
-    each player in this.players
-      if player.isInTokyo
-        li.players-item
-          p #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}, In Tokyo?: #{player.isInTokyo}
-          if player.actions.yieldTokyo
-            a href="#" click="actionBy 'yieldTokyo' player" Yield Tokyo
+  .ready-msg.start-turn
+    h1.ready-msg-title Ready, #{this.currentPlayer.name}?
+    button.btn.ready-msg-btn click="nextPhase" Start Turn
 
-  h3.dice-title Outside Tokyo
-  ul.players-list
-    each player in this.players
-      unless player.isInTokyo
-        li.players-item
-          p #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}, In Tokyo?: #{player.isInTokyo}
-          if player.actions.yieldTokyo
-            a href="#" click="player.act('yieldTokyo', this)" Yield Tokyo
+  .roll-dice
+    ul.dice
+      each die in this.dice
+        App.DieView contentBinding="die"
+    button.btn.finalize-dice-btn click="nextPhase" Finalize Dice
+
+  .resolve-dice
+    h2 Results
+    h3.dice-title In Tokyo
+    ul.players-list
+      each player in this.players
+        if player.isInTokyo
+          li.players-item
+            p #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}, In Tokyo?: #{player.isInTokyo}
+            if player.actions.yieldTokyo
+              a href="#" click="actionBy 'yieldTokyo' player" Yield Tokyo
+
+    h3.dice-title Outside Tokyo
+    ul.players-list
+      each player in this.players
+        unless player.isInTokyo
+          li.players-item
+            p #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}, In Tokyo?: #{player.isInTokyo}
+            if player.actions.yieldTokyo
+              a href="#" click="player.act('yieldTokyo', this)" Yield Tokyo
+
