@@ -1,0 +1,38 @@
+.dice
+  reset-list()
+  clearfix()
+  padding: 10px 0 0 10px
+  background: $gray-lighter
+
+.die
+  float-left()
+  position: relative
+  background: $gray
+  height: 83px
+  width: @height
+  margin: 0 10px 10px 0
+  line-height: @height
+  text-align: center
+  color: $green
+  font-size: 46px
+  cursor: pointer
+  border-radius: 9px
+
+  &.is-onhold
+    border: 6px solid $green
+    height: 71px
+    width: @height
+    line-height: @height
+
+    &:after
+      content: 'Hold'
+      position: absolute
+      bottom: 5px
+      left: 0
+      display: block
+      width: 100%
+      text-align: center
+      color: $green
+      text-transfrom: uppercase
+      font-size: 12px
+      line-height: 1em

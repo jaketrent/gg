@@ -1,5 +1,5 @@
 div class=this.className
-  .game-actions
+  .game-header
     img.game-title src="/img/kingoftokyo.jpg" alt="King of Tokyo"
 
   ul.players-list
