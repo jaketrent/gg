@@ -4,35 +4,31 @@ div class=this.className
     button.btn.game-action-btn click="rollDice" Roll # {{this.rollNum}}
     button.btn.alt-btn.game-action-btn click="nextPhase" Next Phase
 
-    div.meta Turn: #{this.currentPlayer.name}, Phase: #{this.currentPhase}
-
-  .ready-msg.start-turn
-    h1.ready-msg-title Ready, #{this.currentPlayer.name}?
-    button.btn.ready-msg-btn click="nextPhase" Start Turn
+  ul.players-list
+    each player in this.players
+      li.players-item
+        .player-name #{player.name}
+        ul.player-stats-list
+          li.player-stats-item.player-stats-health #{player.health}
+          li.player-stats-item.player-stats-energy #{player.energy}
+          li.player-stats-item.player-stats-score #{player.score}
+        .player-status
+          if player.isInTokyo
+            .player-status-intokyo In Tokyo!
+        if player.actions.yieldTokyo
+          a href="#" click="actionBy 'yieldTokyo' player" Yield Tokyo
 
   .roll-dice
     ul.dice
       each die in this.dice
         App.DieView contentBinding="die"
-    button.btn.finalize-dice-btn click="nextPhase" Finalize Dice
+    button.btn click="rollDice" Roll # {{this.rollNum}}
+    button.btn click="nextPhase" Finalize Dice
 
-  .resolve-dice
-    h2 Results
-    h3.dice-title In Tokyo
-    ul.players-list
-      each player in this.players
-        if player.isInTokyo
-          li.players-item
-            p #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}, In Tokyo?: #{player.isInTokyo}
-            if player.actions.yieldTokyo
-              a href="#" click="actionBy 'yieldTokyo' player" Yield Tokyo
+  .action-btns
+    .start-turn
+      button.btn click="nextPhase" #{this.currentPlayer.name}, Start Turn
+    .end-turn
+      button.btn click="nextPhase" End Turn
 
-    h3.dice-title Outside Tokyo
-    ul.players-list
-      each player in this.players
-        unless player.isInTokyo
-          li.players-item
-            p #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}, In Tokyo?: #{player.isInTokyo}
-            if player.actions.yieldTokyo
-              a href="#" click="player.act('yieldTokyo', this)" Yield Tokyo
-
+  div.debug Turn: #{this.currentPlayer.name}, Phase: #{this.currentPhase}

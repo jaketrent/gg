@@ -2,6 +2,8 @@
   Who has rules?
    - game (base)
    - players have cards have rules
+  When is rule resolved?
+   - base rules - end of turn phase
 ###
 
 ###
