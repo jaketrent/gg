@@ -8,31 +8,51 @@
   float-left()
   position: relative
   background: $gray
-  height: 83px
-  width: @height
-  margin: 0 10px 10px 0
-  line-height: @height
   text-align: center
   color: $green
-  font-size: 46px
   cursor: pointer
-  border-radius: 9px
+  height: 42px
+  width: @height
+  margin: 0 5px 5px 0
+  line-height: @height
+  font-size: 22px
+  border-radius: 5px
 
   &.is-onhold
-    border: 6px solid $green
-    height: 71px
+    border: 3px solid $green
+    height: 36px
     width: @height
     line-height: @height
 
     &:after
       content: 'Hold'
       position: absolute
-      bottom: 5px
       left: 0
       display: block
       width: 100%
       text-align: center
       color: $green
       text-transfrom: uppercase
-      font-size: 12px
       line-height: 1em
+      font-size: 8px
+      bottom: 2px
+
+@media $bp-min-sm
+
+  .die
+    height: 83px
+    width: @height
+    margin: 0 10px 10px 0
+    line-height: @height
+    font-size: 46px
+    border-radius: 9px
+
+    &.is-onhold
+      border: 6px solid $green
+      height: 71px
+      width: @height
+      line-height: @height
+
+      &:after
+        font-size: 2px
+        bottom: 5px
