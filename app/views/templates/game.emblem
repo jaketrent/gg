@@ -13,10 +13,16 @@
   ul.players-list
     each player in this.players
       if player.isInTokyo
-        li.players-item #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}, In Tokyo?: #{player.isInTokyo}
+        li.players-item
+          p #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}, In Tokyo?: #{player.isInTokyo}
+          if player.actions.yieldTokyo
+            a href="#" click="player.act 'yieldTokyo', this" Yield Tokyo
 
   h3.dice-title Outside Tokyo
   ul.players-list
     each player in this.players
       unless player.isInTokyo
-        li.players-item #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}, In Tokyo?: #{player.isInTokyo}
+        li.players-item
+          p #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}, In Tokyo?: #{player.isInTokyo}
+          if player.actions.yieldTokyo
+            a href="#" click="player.act('yieldTokyo', this)" Yield Tokyo

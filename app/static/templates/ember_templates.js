@@ -59,8 +59,8 @@ function program5(depth0,data) {
   }
 function program6(depth0,data) {
   
-  var buffer = '', hashTypes;
-  data.buffer.push("<li class=\"players-item\">");
+  var buffer = '', stack1, hashTypes;
+  data.buffer.push("<li class=\"players-item\"><p>");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "player.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(" - Score: ");
@@ -75,11 +75,20 @@ function program6(depth0,data) {
   data.buffer.push(", In Tokyo?: ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "player.isInTokyo", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("</p>");
+  hashTypes = {};
+  stack1 = helpers['if'].call(depth0, "player.actions.yieldTokyo", {hash:{},inverse:self.program(3, program3, data),fn:self.program(7, program7, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</li>");
   return buffer;
   }
+function program7(depth0,data) {
+  
+  
+  data.buffer.push("<a href=\"#\" click=\"player.act 'yieldTokyo', this\">Yield Tokyo</a>");
+  }
 
-function program8(depth0,data) {
+function program9(depth0,data) {
   
   var stack1, hashTypes;
   hashTypes = {};
@@ -114,7 +123,7 @@ function program8(depth0,data) {
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</ul><h3 class=\"dice-title\">Outside Tokyo</h3><ul class=\"players-list\">");
   hashTypes = {};
-  stack1 = helpers.each.call(depth0, "player", "in", "players", {hash:{},inverse:self.program(3, program3, data),fn:self.program(8, program8, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
+  stack1 = helpers.each.call(depth0, "player", "in", "players", {hash:{},inverse:self.program(3, program3, data),fn:self.program(9, program9, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</ul></div>");
   return buffer;

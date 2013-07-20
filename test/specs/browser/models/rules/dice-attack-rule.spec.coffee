@@ -41,3 +41,12 @@ describe 'App.DiceAttackRule', ->
         rule.exec game
         otherPlayer.get('health').should.eql 5
         otherPlayer.hasAction('yieldTokyo').should.be.true
+
+      it 'disallows player in tokyo who was not attacked to yield tokyo', ->
+        otherPlayer = game.getNonCurrentPlayers()[0]
+        otherPlayer.set 'isInTokyo', true
+
+        game.setDice ['1', '2', '3', '3', '2', 'E']
+        rule.exec game
+        otherPlayer.get('health').should.eql 10
+        otherPlayer.hasAction('yieldTokyo').should.be.false

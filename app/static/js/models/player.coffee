@@ -21,5 +21,6 @@ App.Player = App.Model.extend
     @set "actions.#{action.toString()}", action
 
   act: (key, game) ->
+    console.log 'acting'
     @get("actions.#{key}").exec game, @
 
