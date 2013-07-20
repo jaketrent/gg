@@ -31,12 +31,13 @@ describe 'App.DiceAttackRule', ->
       rule.exec game
       player.get('health').should.eql 0 for player in game.getNonCurrentPlayers()
 
-    # describe 'Attacking into Tokyo', ->
+    describe 'Attacking into Tokyo', ->
 
-    #   it 'allows player in tokyo to yield tokyo', ->
-    #     otherPlayer = game.getNonCurrentPlayers()[0]
-    #     otherPlayer.set 'isInTokyo', true
+      it 'allows player in tokyo to yield tokyo', ->
+        otherPlayer = game.getNonCurrentPlayers()[0]
+        otherPlayer.set 'isInTokyo', true
 
-        # game.setDice ['A', 'A', 'A', 'A', 'A', 'E']
-        # rule.exec game
-        # player.get('health').should.eql 0 for player in game.getNonCurrentPlayers()
+        game.setDice ['A', 'A', 'A', 'A', 'A', 'E']
+        rule.exec game
+        otherPlayer.get('health').should.eql 5
+        otherPlayer.hasAction('yieldTokyo').should.be.true

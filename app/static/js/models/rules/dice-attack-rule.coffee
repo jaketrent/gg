@@ -6,4 +6,7 @@ App.DiceAttackRule = App.Rule.extend
   exec: (game) ->
     attack = 0
     ++attack for die in game.get('dice') when die.isAttack()
-    player.receiveAttack(attack) for player in game.getNonCurrentPlayers()
+    for player in game.getNonCurrentPlayers()
+      player.receiveAttack(attack)
+      if player.get 'isInTokyo'
+        player.grantAction App.YieldTokyoAction.create()

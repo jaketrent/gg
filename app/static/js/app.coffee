@@ -11,6 +11,7 @@
 #= require_tree mixins
 #= require models/model
 #= require models/rules/rule
+#= require models/actions/action
 #= require models/player
 #= require_tree models
 #= require_tree controllers
