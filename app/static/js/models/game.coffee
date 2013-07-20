@@ -4,7 +4,7 @@ App.Game = App.Model.extend
     @phases = [
       "start-turn"
       "roll-dice"
-      "buy-cards"
+      # "buy-cards"
       "end-turn"
     ]
     @currentPhase = "start-turn"

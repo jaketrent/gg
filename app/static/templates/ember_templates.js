@@ -37,10 +37,10 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
 function program1(depth0,data) {
   
   var buffer = '', stack1, hashTypes;
-  data.buffer.push("<li class=\"players-item\"><div class=\"player-name\">");
+  data.buffer.push("<li class=\"players-item\"><div class=\"player-header\"><div class=\"player-avatar\"></div><div class=\"player-name\">");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "player.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("</div><ul class=\"player-stats-list\"><li class=\"player-stats-item player-stats-health\">");
+  data.buffer.push("</div></div><ul class=\"player-stats-list\"><li class=\"player-stats-item player-stats-health\">");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "player.health", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("</li><li class=\"player-stats-item player-stats-energy\">");
@@ -98,20 +98,7 @@ function program8(depth0,data) {
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'class': ("this.className")
   },contexts:[],types:[],hashTypes:hashTypes,data:data})));
-  data.buffer.push("><div class=\"game-actions\"><img class=\"game-title\" src=\"/img/kingoftokyo.jpg\" alt=\"King of Tokyo\" /><button class=\"btn game-action-btn\" ");
-  hashTypes = {'on': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "rollDice", {hash:{
-    'on': ("click")
-  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Roll # ");
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "rollNum", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("</button><button class=\"btn alt-btn game-action-btn\" ");
-  hashTypes = {'on': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "nextPhase", {hash:{
-    'on': ("click")
-  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Next Phase</button></div><ul class=\"players-list\">");
+  data.buffer.push("><div class=\"game-actions\"><img class=\"game-title\" src=\"/img/kingoftokyo.jpg\" alt=\"King of Tokyo\" /></div><ul class=\"players-list\">");
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "player", "in", "players", {hash:{},inverse:self.program(4, program4, data),fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
@@ -145,13 +132,18 @@ function program8(depth0,data) {
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "nextPhase", {hash:{
     'on': ("click")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">End Turn</button></div></div><div class=\"debug\">Turn: ");
+  data.buffer.push(">End Turn</button></div></div><div class=\"debug\">DEBUG: Turn: ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "currentPlayer.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(", Phase: ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "currentPhase", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("</div></div>");
+  data.buffer.push(" (<a ");
+  hashTypes = {'on': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "nextPhase", {hash:{
+    'on': ("click")
+  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Next</a>)</div></div>");
   return buffer;
   
 });
