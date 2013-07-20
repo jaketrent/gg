@@ -1,0 +1,15 @@
+Phases:
+
+start-turn
+  Grant actions:
+  - rollDice
+roll-dice
+resolve-dice
+  Grant actions:
+  - yieldTokyo
+  Expire actions:
+  - rollDice (on 3rd roll)
+buy-cards
+end-turn
+  Expire actions:
+  - yieldTokyo

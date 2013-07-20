@@ -51,6 +51,14 @@ function program3(depth0,data) {
 
 function program5(depth0,data) {
   
+  var stack1, hashTypes;
+  hashTypes = {};
+  stack1 = helpers['if'].call(depth0, "player.isInTokyo", {hash:{},inverse:self.program(3, program3, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  else { data.buffer.push(''); }
+  }
+function program6(depth0,data) {
+  
   var buffer = '', hashTypes;
   data.buffer.push("<li class=\"players-item\">");
   hashTypes = {};
@@ -69,6 +77,15 @@ function program5(depth0,data) {
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "player.isInTokyo", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("</li>");
   return buffer;
+  }
+
+function program8(depth0,data) {
+  
+  var stack1, hashTypes;
+  hashTypes = {};
+  stack1 = helpers.unless.call(depth0, "player.isInTokyo", {hash:{},inverse:self.program(3, program3, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  else { data.buffer.push(''); }
   }
 
   data.buffer.push("<div class=\"game\"><div class=\"game-actions\"><img class=\"game-title\" src=\"/img/kingoftokyo.jpg\" alt=\"King of Tokyo\" /><button class=\"btn game-action-btn\" ");
@@ -91,9 +108,13 @@ function program5(depth0,data) {
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "die", "in", "dice", {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</ul><h3 class=\"dice-title\">Stats</h3><ul class=\"players-list\">");
+  data.buffer.push("</ul><h3 class=\"dice-title\">In Tokyo</h3><ul class=\"players-list\">");
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "player", "in", "players", {hash:{},inverse:self.program(3, program3, data),fn:self.program(5, program5, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("</ul><h3 class=\"dice-title\">Outside Tokyo</h3><ul class=\"players-list\">");
+  hashTypes = {};
+  stack1 = helpers.each.call(depth0, "player", "in", "players", {hash:{},inverse:self.program(3, program3, data),fn:self.program(8, program8, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</ul></div>");
   return buffer;

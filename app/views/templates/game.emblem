@@ -9,7 +9,14 @@
     each die in this.dice
       App.DieView contentBinding="die"
 
-  h3.dice-title Stats
+  h3.dice-title In Tokyo
   ul.players-list
     each player in this.players
-      li.players-item #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}, In Tokyo?: #{player.isInTokyo}
+      if player.isInTokyo
+        li.players-item #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}, In Tokyo?: #{player.isInTokyo}
+
+  h3.dice-title Outside Tokyo
+  ul.players-list
+    each player in this.players
+      unless player.isInTokyo
+        li.players-item #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}, In Tokyo?: #{player.isInTokyo}
