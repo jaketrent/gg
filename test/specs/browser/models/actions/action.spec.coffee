@@ -2,11 +2,11 @@ describe 'App.Action', ->
 
   it 'has a grantPhase attr that defaults to roll-dice', ->
     action = App.Action.create()
-    action.get('grantPhase').should.eql 'roll-dice'
+    action.get('grantPhase').should.eql 'start-turn'
 
-  it 'has an expirePhase attr that defaults to resolve-dice', ->
+  it 'has an expirePhase attr that defaults to roll-dice', ->
     action = App.Action.create()
-    action.get('expirePhase').should.eql 'resolve-dice'
+    action.get('expirePhase').should.eql 'roll-dice'
 
   it 'has an exec fn', ->
     action = App.Action.create()

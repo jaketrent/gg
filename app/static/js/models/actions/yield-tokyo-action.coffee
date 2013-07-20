@@ -1,7 +1,7 @@
 # Things a player can do in different situations in the game
 App.YieldTokyoAction = App.Action.extend
 
-  grantPhase: 'resolve-dice'
+  grantPhase: 'roll-dice'
   expirePhase: 'end-turn'
 
   exec: (game, actor) ->

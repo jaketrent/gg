@@ -7,11 +7,11 @@ describe 'App.YieldTokyoAction', ->
     game = App.Game.create()
 
   describe 'Phases', ->
-    it 'has a grantPhase of resolve-dice', ->
-      action.get('grantPhase').should.eql 'resolve-dice'
+    it 'has a grantPhase of roll-dice', ->
+      action.get('grantPhase').should.eql 'roll-dice'
 
     # TODO: check rule
-    it 'has an expirePhase of resolve-dice', ->
+    it 'has an expirePhase of roll-dice', ->
       action.get('expirePhase').should.eql 'end-turn'
 
   describe '#exec', ->

@@ -1,7 +1,7 @@
 App.DiceScoreRule = App.Rule.extend
 
   applies: (game) ->
-    game.get('currentPhase') is 'resolve-dice'
+    game.get('currentPhase') is 'roll-dice'
 
   exec: (game) ->
     score = 0

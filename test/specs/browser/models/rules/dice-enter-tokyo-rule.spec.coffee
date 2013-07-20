@@ -8,9 +8,9 @@ describe 'App.DiceEnterTokyoRule', ->
 
   describe '#applies', ->
 
-    it 'is resolve-dice phase', ->
+    it 'is roll-dice phase', ->
       rule.applies(game).should.be.false
-      game.set 'currentPhase', 'resolve-dice'
+      game.set 'currentPhase', 'roll-dice'
       rule.applies(game).should.be.true
 
   describe '#exec', ->

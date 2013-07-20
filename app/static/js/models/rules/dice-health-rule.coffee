@@ -1,7 +1,7 @@
 App.DiceHealthRule = App.Rule.extend
 
   applies: (game) ->
-    game.get('currentPhase') is 'resolve-dice'
+    game.get('currentPhase') is 'roll-dice'
 
   exec: (game) ->
     health = 0

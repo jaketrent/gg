@@ -8,9 +8,9 @@ describe 'App.DiceEnergyRule', ->
 
   describe '#applies', ->
 
-    it 'in resolve-dice phase', ->
+    it 'in roll-dice phase', ->
       rule.applies(game).should.be.false
-      game.set 'currentPhase', 'resolve-dice'
+      game.set 'currentPhase', 'roll-dice'
       rule.applies(game).should.be.true
 
   describe '#exec', ->
