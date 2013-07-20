@@ -62,3 +62,7 @@ App.Game = App.Model.extend
 
   isAttackRolled: ->
     @getNumAttackRolled() > 0
+
+  doSomething: (actionKey, player) ->
+    console.log "doing something"
+    player.act actionKey, @

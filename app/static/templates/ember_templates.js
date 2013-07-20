@@ -84,8 +84,14 @@ function program6(depth0,data) {
   }
 function program7(depth0,data) {
   
-  
-  data.buffer.push("<a href=\"#\" click=\"player.act 'yieldTokyo', this\">Yield Tokyo</a>");
+  var buffer = '', hashTypes;
+  data.buffer.push("<a href=\"#\" ");
+  hashTypes = {'on': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "actionBy", "yieldTokyo", "player", {hash:{
+    'on': ("click")
+  },contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Yield Tokyo</a>");
+  return buffer;
   }
 
 function program9(depth0,data) {

@@ -16,7 +16,7 @@
         li.players-item
           p #{player.name} - Score: #{player.score}, Health: #{player.health}, Energy: #{player.energy}, In Tokyo?: #{player.isInTokyo}
           if player.actions.yieldTokyo
-            a href="#" click="player.act 'yieldTokyo', this" Yield Tokyo
+            a href="#" click="actionBy 'yieldTokyo' player" Yield Tokyo
 
   h3.dice-title Outside Tokyo
   ul.players-list
