@@ -28,10 +28,11 @@ div class=this.className
     ul.dice
       each die in this.dice
         App.DieView contentBinding="die"
-    button.btn click="rollDice" Roll # {{this.rollNum}}
-    button.btn click="nextPhase" Finalize Dice
+    .actions
+      button.btn click="rollDice" Roll # {{this.rollNum}}
+      button.btn.alt-btn click="nextPhase" Finalize Dice
 
-  .action-btns
+  .actions
     .start-turn
       button.btn click="nextPhase" #{this.currentPlayer.name}, Start Turn
     .end-turn
