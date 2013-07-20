@@ -2,7 +2,7 @@
   .game-actions
     img.game-title src="/img/kingoftokyo.jpg" alt="King of Tokyo"
     button.btn.game-action-btn click="rollDice" Roll # {{this.rollNum}}
-    button.btn.alt-btn.game-action-btn click="endTurn" End Turn
+    button.btn.alt-btn.game-action-btn click="nextPhase" Next Phase
 
   h3.dice-title Turn: #{this.currentPlayer.name}
   ul.dice

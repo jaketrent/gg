@@ -1,6 +1,10 @@
 App.Player = App.Model.extend
 
   init: ->
+    # TODO: create rule to clear temp state
+    @states =
+      turn: {}
+      game: {}
     @actions = {}
     @health = 10
     @score = 0
@@ -11,6 +15,7 @@ App.Player = App.Model.extend
   receiveAttack: (attack) ->
     postAttackHealth = @get('health') - attack
     @set 'health', if postAttackHealth >= 0 then postAttackHealth else 0
+    @set 'states.turn.hit', attack > 0
 
   hasAction: (key) ->
     @get("actions.#{key}")?
@@ -21,9 +26,5 @@ App.Player = App.Model.extend
     @set "actions.#{action.toString()}", action
 
   act: (key, game) ->
-    action = @get("actions.#{key}")
-    console.log """acting
-      action: #{action}
-    """
-    action.exec game, @
+    @get("actions.#{key}").exec game, @
 

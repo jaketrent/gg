@@ -6,6 +6,14 @@ describe 'App.YieldTokyoAction', ->
   beforeEach ->
     game = App.Game.create()
 
+  describe 'Phases', ->
+    it 'has a grantPhase of resolve-dice', ->
+      action.get('grantPhase').should.eql 'resolve-dice'
+
+    # TODO: check rule
+    it 'has an expirePhase of resolve-dice', ->
+      action.get('expirePhase').should.eql 'end-turn'
+
   describe '#exec', ->
 
     it 'puts acting player out of tokyo', ->

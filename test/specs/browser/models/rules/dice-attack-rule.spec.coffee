@@ -10,7 +10,7 @@ describe 'App.DiceAttackRule', ->
 
     it 'in resolve-dice phase', ->
       rule.applies(game).should.be.false
-      game.set 'states.phase', 'resolve-dice'
+      game.set 'currentPhase', 'resolve-dice'
       rule.applies(game).should.be.true
 
   describe '#exec', ->
@@ -31,22 +31,13 @@ describe 'App.DiceAttackRule', ->
       rule.exec game
       player.get('health').should.eql 0 for player in game.getNonCurrentPlayers()
 
-    describe 'Attacking into Tokyo', ->
+    it 'sets states.turn.hit', ->
+      game.setDice ['A', 'A', 'A', 'A', 'A', 'E']
+      rule.exec game
+      player.get('states.turn.hit').should.be.true for player in game.getNonCurrentPlayers()
 
-      it 'allows player in tokyo to yield tokyo', ->
-        otherPlayer = game.getNonCurrentPlayers()[0]
-        otherPlayer.set 'isInTokyo', true
+    it 'doesnt set states.turn.hit if no attack rolled', ->
+      game.setDice ['1', 'E', '3', '2', '3', 'E']
+      rule.exec game
+      player.get('states.turn.hit').should.be.false for player in game.getNonCurrentPlayers()
 
-        game.setDice ['A', 'A', 'A', 'A', 'A', 'E']
-        rule.exec game
-        otherPlayer.get('health').should.eql 5
-        otherPlayer.hasAction('yieldTokyo').should.be.true
-
-      it 'disallows player in tokyo who was not attacked to yield tokyo', ->
-        otherPlayer = game.getNonCurrentPlayers()[0]
-        otherPlayer.set 'isInTokyo', true
-
-        game.setDice ['1', '2', '3', '3', '2', 'E']
-        rule.exec game
-        otherPlayer.get('health').should.eql 10
-        otherPlayer.hasAction('yieldTokyo').should.be.false

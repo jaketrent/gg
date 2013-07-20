@@ -1,34 +1,49 @@
 App.Game = App.Model.extend
 
   init: ->
-    @states = {}
+    @phases = [
+      "start-turn"
+      "roll-dice"
+      "resolve-dice"
+      "buy-cards"
+      "end-turn"
+    ]
+    @currentPhase = "start-turn"
     @rules = [
       App.DiceAttackRule.create()
       App.DiceHealthRule.create()
       App.DiceScoreRule.create()
       App.DiceEnergyRule.create()
       App.DiceEnterTokyoRule.create()
+      App.GrantYieldTokyoRule.create()
+      App.ResetDiceRule.create()
+      App.NextPlayerRule.create()
     ]
-    @resetDice()
+    resetDiceRule = App.ResetDiceRule.create().exec @
     @players = (App.Player.create { name: "Player #{num}" } for num in [1..2])
     @set 'currentPlayerIndx', 0
     @set 'currentPlayer', @players[@get 'currentPlayerIndx']
 
-  endTurn: ->
-    @set 'states.phase', 'resolve-dice'
+  nextPhase: ->
     @processRules()
-    @resetDice()
-    @nextPlayer()
+
+    indx = @phases.indexOf(@get('currentPhase'))
+    if indx < @phases.length - 1
+      @set 'currentPhase', @phases[indx + 1]
+    else
+      @set 'currentPhase', @phases[0]
+    console.log "advanced to phase: #{@get('currentPhase')}"
+
+
+  # endTurn: ->
+  #   # TODO: refactor this phase setting
+  #   @set 'currentPhase', 'resolve-dice'
+  #   @processRules()
 
   processRules: ->
     for rule in @rules
       if rule.applies @
         rule.exec @
-
-  resetDice: ->
-    # TODO: move to player
-    @set 'dice', (App.Die.create() for num in [1..6])
-    @set 'rollNum', 1
 
   setDice: (faceNames) ->
     dice = @get 'dice'
@@ -36,14 +51,15 @@ App.Game = App.Model.extend
       dice[i].setActiveFace faceName
     @set 'dice', dice
 
-  nextPlayer: ->
-    indx = @get 'currentPlayerIndx'
-    if indx < @players.length - 1
-      @incrementProperty 'currentPlayerIndx'
-    else
-      @set 'currentPlayerIndx', 0
-    @set 'currentPlayer', @players[@get 'currentPlayerIndx']
-    @set 'states.phase', 'roll'
+  # nextPlayer: ->
+  #   indx = @get 'currentPlayerIndx'
+  #   if indx < @players.length - 1
+  #     @incrementProperty 'currentPlayerIndx'
+  #   else
+  #     @set 'currentPlayerIndx', 0
+  #   @set 'currentPlayer', @players[@get 'currentPlayerIndx']
+  #   # TODO: refactor this phase setting
+  #   @set 'currentPhase', 'roll'
 
   getNonCurrentPlayers: ->
     player for player, i in @get('players') when i isnt @get 'currentPlayerIndx'
@@ -62,7 +78,3 @@ App.Game = App.Model.extend
 
   isAttackRolled: ->
     @getNumAttackRolled() > 0
-
-  doSomething: (actionKey, player) ->
-    console.log "doing something"
-    player.act actionKey, @

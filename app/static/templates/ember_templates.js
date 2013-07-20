@@ -113,10 +113,10 @@ function program9(depth0,data) {
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "rollNum", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("</button><button class=\"btn alt-btn game-action-btn\" ");
   hashTypes = {'on': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "endTurn", {hash:{
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "nextPhase", {hash:{
     'on': ("click")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">End Turn</button></div><h3 class=\"dice-title\">Turn: ");
+  data.buffer.push(">Next Phase</button></div><h3 class=\"dice-title\">Turn: ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "currentPlayer.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("</h3><ul class=\"dice\">");
