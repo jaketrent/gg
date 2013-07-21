@@ -29,3 +29,5 @@ describe 'App.MonsterDeathRule', ->
       aPlayer.set 'health', 0
       rule.exec game
       expect(aPlayer.get('className').indexOf("is-dead") > -1).to.be.true
+
+    # TODO: make killing monster enter tokyo

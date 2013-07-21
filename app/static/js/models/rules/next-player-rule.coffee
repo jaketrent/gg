@@ -4,13 +4,25 @@ App.NextPlayerRule = App.Rule.extend
     game.get('currentPhase') is 'end-turn'
 
   exec: (game) ->
-    indx = game.get 'currentPlayerIndx'
-    if indx < game.players.length - 1
-      game.incrementProperty 'currentPlayerIndx'
-    else
-      game.set 'currentPlayerIndx', 0
-    nextPlayer = game.players[game.get 'currentPlayerIndx']
-    game.set 'currentPlayer', nextPlayer
 
+    players = game.get 'players'
+
+    findNextPlayerNotDead = (startIndx) ->
+      nextIndx = getNextIndex startIndx
+      if players[nextIndx].get 'isDead'
+        findNextPlayerNotDead nextIndx
+      else
+        [nextIndx, players[nextIndx]]
+
+    getNextIndex = (startIndx) ->
+      if startIndx < game.players.length - 1
+        startIndx + 1
+      else
+        0
+
+    [nextIndx, nextPlayer] = findNextPlayerNotDead game.get 'currentPlayerIndx'
+
+    game.set 'currentPlayer', nextPlayer
+    game.set 'currentPlayerIndx', nextIndx
     player.removeClassName 'is-current-player' for player in game.get('players')
     nextPlayer.addClassName 'is-current-player'
