@@ -83,7 +83,10 @@ function program5(depth0,data) {
   stack1 = helpers['if'].call(depth0, "player.isInTokyo", {hash:{},inverse:self.program(3, program3, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   hashTypes = {};
-  stack1 = helpers['if'].call(depth0, "player.actions.yieldTokyo", {hash:{},inverse:self.program(3, program3, data),fn:self.program(8, program8, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
+  stack1 = helpers['if'].call(depth0, "player.isWinner", {hash:{},inverse:self.program(3, program3, data),fn:self.program(8, program8, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  hashTypes = {};
+  stack1 = helpers['if'].call(depth0, "player.actions.yieldTokyo", {hash:{},inverse:self.program(3, program3, data),fn:self.program(10, program10, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</div></li>");
   return buffer;
@@ -96,6 +99,12 @@ function program6(depth0,data) {
 
 function program8(depth0,data) {
   
+  
+  data.buffer.push("<div class=\"player-status-winner\">You Won!</div>");
+  }
+
+function program10(depth0,data) {
+  
   var buffer = '', hashTypes;
   data.buffer.push("<button class=\"btn btn-mini yield-tokyo-btn\" href=\"#\" ");
   hashTypes = {'on': "STRING"};
@@ -106,7 +115,7 @@ function program8(depth0,data) {
   return buffer;
   }
 
-function program10(depth0,data) {
+function program12(depth0,data) {
   
   var hashTypes;
   hashTypes = {'contentBinding': "STRING"};
@@ -134,13 +143,13 @@ function program10(depth0,data) {
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "startTurns", {hash:{
     'on': ("click")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Start Game</button></li></ul></div><div class=\"start-turn roll-dice buy-cards end-turn\"><ul class=\"players-list\">");
+  data.buffer.push(">Start Game</button></li></ul></div><div class=\"start-turn roll-dice buy-cards end-turn game-end\"><ul class=\"players-list\">");
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "player", "in", "players", {hash:{},inverse:self.program(3, program3, data),fn:self.program(5, program5, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</ul></div><div class=\"roll-dice\"><ul class=\"dice\">");
   hashTypes = {};
-  stack1 = helpers.each.call(depth0, "die", "in", "dice", {hash:{},inverse:self.program(3, program3, data),fn:self.program(10, program10, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
+  stack1 = helpers.each.call(depth0, "die", "in", "dice", {hash:{},inverse:self.program(3, program3, data),fn:self.program(12, program12, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</ul><div class=\"actions\"><button class=\"btn\" ");
   hashTypes = {'on': "STRING"};

@@ -13,7 +13,7 @@ div class=this.className
         button.btn click="startTurns" Start Game
 
 
-  .start-turn.roll-dice.buy-cards.end-turn
+  .start-turn.roll-dice.buy-cards.end-turn.game-end
     ul.players-list
       each player in this.players
         li class=player.className
@@ -33,6 +33,8 @@ div class=this.className
           .player-status
             if player.isInTokyo
               .player-status-intokyo In Tokyo!
+            if player.isWinner
+              .player-status-winner You Won!
             if player.actions.yieldTokyo
               button.btn.btn-mini.yield-tokyo-btn href="#" click="actionBy 'yieldTokyo' player" Yield Tokyo
 

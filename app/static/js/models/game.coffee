@@ -17,6 +17,7 @@ App.Game = App.Model.extend
       App.DiceEnterTokyoRule.create()
       App.GrantYieldTokyoRule.create()
       App.ExpireActionsRule.create()
+      App.WinByScoreRule.create()
       App.ResetDiceRule.create()
       App.ClearTurnStateRule.create()
       App.NextPlayerRule.create()
