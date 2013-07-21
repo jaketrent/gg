@@ -1,6 +1,5 @@
 .home
   img.home-title src="/img/kingoftokyo.jpg" alt="King of Tokyo"
-  h2.home-subtitle Roller
 
   ul.main-nav-list
     li.main-nav-item

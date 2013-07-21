@@ -1,6 +1,8 @@
 App.Game = App.Model.extend
 
   init: ->
+    @numPlayers ?= 2
+    console.log "starting game with #{@numPlayers} players"
     @phases = [
       "start-turn"
       "roll-dice"
@@ -21,7 +23,7 @@ App.Game = App.Model.extend
       App.NextPlayerRule.create()
     ]
     initiallyResetDice = App.ResetDiceRule.create().exec @
-    @players = (App.Player.create { name: "Player #{num}" } for num in [1..4])
+    @players = (App.Player.create { name: "Player #{num}" } for num in [1..@numPlayers])
     @set 'currentPlayerIndx', 0
     @set 'currentPlayer', @players[@get 'currentPlayerIndx']
     @get('currentPlayer').addClassName 'is-current-player'

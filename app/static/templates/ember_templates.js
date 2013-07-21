@@ -169,7 +169,7 @@ function program3(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<div class=\"home\"><img class=\"home-title\" src=\"/img/kingoftokyo.jpg\" alt=\"King of Tokyo\" /><h2 class=\"home-subtitle\">Roller</h2><ul class=\"main-nav-list\"><li class=\"main-nav-item\">");
+  data.buffer.push("<div class=\"home\"><img class=\"home-title\" src=\"/img/kingoftokyo.jpg\" alt=\"King of Tokyo\" /><ul class=\"main-nav-list\"><li class=\"main-nav-item\">");
   hashTypes = {'class': "STRING"};
   options = {hash:{
     'class': ("btn main-nav-link")
