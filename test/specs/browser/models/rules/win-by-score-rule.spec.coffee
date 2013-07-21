@@ -1,7 +1,7 @@
-describe 'App.WinByScoreRule', ->
+describe 'App.WinByLastStandingRule', ->
 
   game = null
-  rule = App.WinByScoreRule.create()
+  rule = App.WinByLastStandingRule.create()
 
   beforeEach ->
     game = App.Game.create()
@@ -16,20 +16,20 @@ describe 'App.WinByScoreRule', ->
 
   describe '#exec', ->
 
-    it 'sets isWinner for monster with 20 points', ->
-      aPlayer = game.get('players')[1]
-      aPlayer.set 'score', 20
+    it 'sets isWinner for last monster standing', ->
+      deadPlayer = game.get('players')[1]
+      deadPlayer.set 'isDead', true
       rule.exec game
-      aPlayer.get('isWinner').should.be.true
+      game.get('currentPlayer').get('isWinner').should.be.true
 
     it 'sets is-winner className', ->
-      aPlayer = game.get('players')[1]
-      aPlayer.set 'score', 20
+      deadPlayer = game.get('players')[1]
+      deadPlayer.set 'isDead', true
       rule.exec game
-      expect(aPlayer.get('className').indexOf("is-winner") > -1).to.be.true
+      expect(game.get('currentPlayer').get('className').indexOf("is-winner") > -1).to.be.true
 
     it 'sets game phase to end-game', ->
-      aPlayer = game.get('players')[1]
-      aPlayer.set 'score', 20
+      deadPlayer = game.get('players')[1]
+      deadPlayer.set 'isDead', true
       rule.exec game
       game.get('currentPhase').should.eql 'game-end'
