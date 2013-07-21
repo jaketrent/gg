@@ -6,14 +6,16 @@ App.Player = App.Model.extend
       turn: {}
       game: {}
     @actions = {}
+
     @health = 10
     @score = 0
     @energy = 0
+
     @isInTokyo = false
     @isWinner = false
     @isDead = false
+
     @set 'className', "players-item"
-    # @name from constructor
 
   setAvatar: (avatar) ->
     @addClassName avatar

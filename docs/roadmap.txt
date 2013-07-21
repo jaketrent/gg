@@ -7,12 +7,20 @@ Real game config
  x- avatar
 x Monster death
 x Victory conditions
-Dice size on phone landscape
+x Dice size on phone landscape
 Limit dice rolling
 
 1 card to buy
 1 card to use
 
+Small UI enhancements
+
 Table-top mode
 
 Limit players
+
+Avatar chooser
+Evolutions
+Game persistence
+Offline mode
+AI players
