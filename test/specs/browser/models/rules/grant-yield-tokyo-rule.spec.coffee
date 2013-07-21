@@ -15,11 +15,12 @@ describe 'App.GrantYieldTokyoRule', ->
 
   describe '#exec', ->
 
-    it 'grants action to current player hit in tokyo', ->
-      game.get('currentPlayer').hasAction('yieldTokyo').should.be.false
-      game.set 'currentPlayer.states.turn.hit', true
-      game.set 'currentPlayer.isInTokyo', true
+    it 'grants action to any player hit in tokyo', ->
+      aPlayer = game.get('players')[1]
+      aPlayer.hasAction('yieldTokyo').should.be.false
+      aPlayer.set 'states.turn.hit', true
+      aPlayer.set 'isInTokyo', true
       rule.exec game
-      game.get('currentPlayer').hasAction('yieldTokyo').should.be.true
+      aPlayer.hasAction('yieldTokyo').should.be.true
 
 
