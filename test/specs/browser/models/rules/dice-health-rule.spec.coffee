@@ -31,3 +31,10 @@ describe 'App.DiceHealthRule', ->
       game.setDice ['H', 'H', 'H', 'H', 'H', 'H']
       rule.exec game
       game.get('currentPlayer.health').should.eql 10
+
+    it 'doesnt heal if in tokyo', ->
+      game.set 'currentPlayer.health', 6
+      game.set 'currentPlayer.isInTokyo', true
+      game.setDice ['H', 'H', 'H', 'H', 'H', 'H']
+      rule.exec game
+      game.get('currentPlayer.health').should.eql 6
