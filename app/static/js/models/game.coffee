@@ -16,10 +16,11 @@ App.Game = App.Model.extend
       App.DiceEnterTokyoRule.create()
       App.GrantYieldTokyoRule.create()
       App.ResetDiceRule.create()
+      App.ClearTurnStateRule.create()
       App.NextPlayerRule.create()
     ]
     initiallyResetDice = App.ResetDiceRule.create().exec @
-    @players = (App.Player.create { name: "Player #{num}" } for num in [1..2])
+    @players = (App.Player.create { name: "Player #{num}" } for num in [1..4])
     @set 'currentPlayerIndx', 0
     @set 'currentPlayer', @players[@get 'currentPlayerIndx']
     @set 'className', "game start-turn"

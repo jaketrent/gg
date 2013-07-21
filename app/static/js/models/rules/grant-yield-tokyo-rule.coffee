@@ -5,5 +5,8 @@ App.GrantYieldTokyoRule = App.Rule.extend
 
   exec: (game) ->
     currentPlayer = game.get 'currentPlayer'
-    if currentPlayer.get('isInTokyo') and currentPlayer.get('states.turn.hit')
+    isHit = currentPlayer.get('states.turn.hit')
+    inTokyo = currentPlayer.get('isInTokyo')
+    console.log "#{currentPlayer.get('name')} inTokyo: #{inTokyo} and isHit: #{isHit}"
+    if inTokyo and isHit
       currentPlayer.grantAction App.YieldTokyoAction.create()
