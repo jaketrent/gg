@@ -37,7 +37,12 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
 function program1(depth0,data) {
   
   var buffer = '', stack1, hashTypes;
-  data.buffer.push("<li class=\"players-item\"><div class=\"player-header\"><div class=\"player-avatar\"></div><div class=\"player-name\">");
+  data.buffer.push("<li ");
+  hashTypes = {'class': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'class': ("player.className")
+  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
+  data.buffer.push("><div class=\"player-header\"><div class=\"player-avatar\"></div><div class=\"player-name\">");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "player.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("</div></div><ul class=\"player-stats-list\"><li class=\"player-stats-item\"><div class=\"icon icon-die-H\"></div>");

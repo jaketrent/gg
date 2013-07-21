@@ -5,4 +5,6 @@ App.DiceEnterTokyoRule = App.Rule.extend
 
   exec: (game) ->
     if not game.isPlayerInTokyo() and game.isAttackRolled()
-      game.get('currentPlayer').set 'isInTokyo', true
+      currentPlayer = game.get('currentPlayer')
+      currentPlayer.set 'isInTokyo', true
+      currentPlayer.addClassName "is-in-tokyo"

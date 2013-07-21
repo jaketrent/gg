@@ -7,6 +7,15 @@
     width: 50%
     padding: 10px
 
+    &.is-in-tokyo
+      background: image-path('tokyobg.jpg')
+      border-radius: 5px
+      color: $white
+      text-shadow: 1px 1px 0 $black
+
+      .icon
+        color: $white
+
   .player-header
     position: relative
 
@@ -33,12 +42,18 @@
     padding-right: 5px
     display: inline-block
 
-    .icon
-      display: inline-block
+  .icon
+    display: inline-block
 
-      &.icon-die-H
-        color: #b82b34
-      &.icon-die-E
-        color: #398247
-      &.icon-star
-        color: #5f648a
+    &.icon-die-H
+      color: #b82b34
+    &.icon-die-E
+      color: #398247
+    &.icon-star
+      color: #5f648a
+
+  .player-status
+    height: $base-line-height
+    line-height: $base-line-height
+    text-align: center
+    font-size: 10px

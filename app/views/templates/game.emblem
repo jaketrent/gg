@@ -4,7 +4,7 @@ div class=this.className
 
   ul.players-list
     each player in this.players
-      li.players-item
+      li class=player.className
         .player-header
           .player-avatar
           .player-name #{player.name}
