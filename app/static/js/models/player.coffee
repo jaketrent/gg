@@ -13,6 +13,9 @@ App.Player = App.Model.extend
     @set 'className', "players-item"
     # @name from constructor
 
+  setAvatar: (avatar) ->
+    @addClassName avatar
+
   receiveAttack: (attack) ->
     postAttackHealth = @get('health') - attack
     @set 'health', if postAttackHealth >= 0 then postAttackHealth else 0

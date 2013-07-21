@@ -22,16 +22,11 @@ App.Game = App.Model.extend
     ]
     @setPhase 'start-game'
     @config = App.GameConfig.create()
-    # @startTurns()
-
-  addPlayer: ->
-    configPlayers = @get 'config.players'
-    configPlayers.addObject App.Player.create { name: "Player #{configPlayers.length + 1}" }
 
   startTurns: ->
     @numPlayers ?= 2
     initiallyResetDice = App.ResetDiceRule.create().exec @
-    @set 'players', (App.Player.create { name: player.get('name') } for player in @config.get('players'))
+    @set 'players', @config.get 'players'
     @set 'currentPlayerIndx', 0
     @set 'currentPlayer', @players[@get 'currentPlayerIndx']
     @get('currentPlayer').addClassName 'is-current-player'

@@ -1,9 +1,9 @@
 Fix new game link
- - route must be executed every time
- - multiple numPlayer btns
+ x- route must be executed every time
+ x- multiple numPlayer btns
 Real game config
- - num player
- - name
+ x- num player
+ x- name
  - avatar
 Dice size on phone landscape
 Monster death

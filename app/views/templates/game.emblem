@@ -5,7 +5,7 @@ div class=this.className
   .game-config.start-game
     ul.players-config-list
       each player in this.config.players
-        li.players-config-item class=player.className
+        li class=player.className
           .player-avatar
           Ember.TextField class="player-name-input" valueBinding="player.name"
       li.players-config-item
