@@ -27,3 +27,11 @@ describe 'App.DiceEnterTokyoRule', ->
       game.setDice ['1', '2', '3', 'E', 'A', 'H']
       rule.exec game
       game.get('currentPlayer').get('isInTokyo').should.be.false
+
+    it 'adds one point when entering tokyo', ->
+      game.get('currentPlayer').get('isInTokyo').should.be.false
+      game.setDice ['1', '2', '3', 'E', 'A', 'H']
+      rule.exec game
+      game.get('currentPlayer.score').should.eql 1
+
+

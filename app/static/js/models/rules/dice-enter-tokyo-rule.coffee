@@ -7,4 +7,5 @@ App.DiceEnterTokyoRule = App.Rule.extend
     if not game.isPlayerInTokyo() and game.isAttackRolled()
       currentPlayer = game.get('currentPlayer')
       currentPlayer.set 'isInTokyo', true
+      currentPlayer.addScore 1
       currentPlayer.addClassName "is-in-tokyo"
