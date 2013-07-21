@@ -12,7 +12,7 @@ describe 'App.YieldTokyoAction', ->
 
     # TODO: check rule
     it 'has an expirePhase of roll-dice', ->
-      action.get('expirePhase').should.eql 'end-turn'
+    action.get('expirePhase').should.eql 'end-turn'
 
   describe '#exec', ->
 

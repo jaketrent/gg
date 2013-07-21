@@ -24,6 +24,7 @@ App.Game = App.Model.extend
     @players = (App.Player.create { name: "Player #{num}" } for num in [1..4])
     @set 'currentPlayerIndx', 0
     @set 'currentPlayer', @players[@get 'currentPlayerIndx']
+    @get('currentPlayer').addClassName 'is-current-player'
     @set 'className', "game start-turn"
 
   nextPhase: ->

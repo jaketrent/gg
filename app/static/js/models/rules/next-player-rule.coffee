@@ -9,4 +9,8 @@ App.NextPlayerRule = App.Rule.extend
       game.incrementProperty 'currentPlayerIndx'
     else
       game.set 'currentPlayerIndx', 0
-    game.set 'currentPlayer', game.players[game.get 'currentPlayerIndx']
+    nextPlayer = game.players[game.get 'currentPlayerIndx']
+    game.set 'currentPlayer', nextPlayer
+
+    player.removeClassName 'is-current-player' for player in game.get('players')
+    nextPlayer.addClassName 'is-current-player'
