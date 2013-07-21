@@ -6,7 +6,12 @@ App.YieldTokyoAction = App.Action.extend
 
   exec: (game, actor) ->
     actor.set 'isInTokyo', false
-    game.set 'currentPlayer.isInTokyo', true
+    actor.removeClassName 'is-in-tokyo'
+    actor.revokeAction 'yieldTokyo'
+
+    currentPlayer = game.get 'currentPlayer'
+    currentPlayer.set 'isInTokyo', true
+    currentPlayer.addClassName 'is-in-tokyo'
 
   toString: ->
     "yieldTokyo"

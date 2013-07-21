@@ -7,3 +7,8 @@ App.Model = Ember.Object.extend
   # TODO: seriously need to learn how to do bindAttr in .emblem files with dynamic and static class names
   addClassName: (clazz) ->
     @set 'className', "#{@get('className')} #{clazz}"
+
+  # TODO: seriously need to learn how to do bindAttr in .emblem files with dynamic and static class names
+  removeClassName: (clazz) ->
+    withoutClassName = @get('className').replace clazz, ''
+    @set 'className', withoutClassName

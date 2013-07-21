@@ -58,11 +58,10 @@ function program1(depth0,data) {
   hashTypes = {};
   stack1 = helpers['if'].call(depth0, "player.isInTokyo", {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</div>");
   hashTypes = {};
   stack1 = helpers['if'].call(depth0, "player.actions.yieldTokyo", {hash:{},inverse:self.program(4, program4, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</li>");
+  data.buffer.push("</div></li>");
   return buffer;
   }
 function program2(depth0,data) {
@@ -80,12 +79,12 @@ function program4(depth0,data) {
 function program6(depth0,data) {
   
   var buffer = '', hashTypes;
-  data.buffer.push("<a href=\"#\" ");
+  data.buffer.push("<button class=\"btn btn-mini yield-tokyo-btn\" href=\"#\" ");
   hashTypes = {'on': "STRING"};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "actionBy", "yieldTokyo", "player", {hash:{
     'on': ("click")
   },contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Yield Tokyo</a>");
+  data.buffer.push(">Yield Tokyo</button>");
   return buffer;
   }
 
@@ -124,7 +123,7 @@ function program8(depth0,data) {
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "nextPhase", {hash:{
     'on': ("click")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Finalize Dice</button></div></div><div class=\"actions\"><div class=\"start-turn\"><button class=\"btn\" ");
+  data.buffer.push(">Done Rolling</button></div></div><div class=\"actions\"><div class=\"start-turn\"><button class=\"btn\" ");
   hashTypes = {'on': "STRING"};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "nextPhase", {hash:{
     'on': ("click")

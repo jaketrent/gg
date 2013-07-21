@@ -21,8 +21,8 @@ div class=this.className
         .player-status
           if player.isInTokyo
             .player-status-intokyo In Tokyo!
-        if player.actions.yieldTokyo
-          a href="#" click="actionBy 'yieldTokyo' player" Yield Tokyo
+          if player.actions.yieldTokyo
+            button.btn.btn-mini.yield-tokyo-btn href="#" click="actionBy 'yieldTokyo' player" Yield Tokyo
 
   .roll-dice
     ul.dice
@@ -30,7 +30,7 @@ div class=this.className
         App.DieView contentBinding="die"
     .actions
       button.btn click="rollDice" Roll # {{this.rollNum}}
-      button.btn.alt-btn click="nextPhase" Finalize Dice
+      button.btn.alt-btn click="nextPhase" Done Rolling
 
   .actions
     .start-turn

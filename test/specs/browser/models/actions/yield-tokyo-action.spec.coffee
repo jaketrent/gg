@@ -23,5 +23,11 @@ describe 'App.YieldTokyoAction', ->
       inTokyoPlayer.act 'yieldTokyo', game
       inTokyoPlayer.get('isInTokyo').should.be.false
 
+    it 'removes action after using it', ->
+      aPlayer = game.get('players')[1]
+      aPlayer.grantAction App.YieldTokyoAction.create()
+      aPlayer.act 'yieldTokyo', game
+      aPlayer.hasAction('yieldTokyo').should.be.false
+
 
 
