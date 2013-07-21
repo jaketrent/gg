@@ -1,3 +1,15 @@
-Do points:
-- Enter tokyo
-- Start turn in tokyo
+Fix new game link
+ - route must be executed every time
+ - multiple numPlayer btns
+Real game config
+ - num player
+ - name
+ - avatar
+Dice size on phone landscape
+Monster death
+Victory conditions
+
+1 card to buy
+1 card to use
+
+Table-top mode
