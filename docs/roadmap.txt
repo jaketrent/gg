@@ -5,8 +5,8 @@ Real game config
  x- num player
  x- name
  x- avatar
-Monster death
-Victory conditions
+x Monster death
+x Victory conditions
 Dice size on phone landscape
 Limit dice rolling
 
@@ -14,3 +14,5 @@ Limit dice rolling
 1 card to use
 
 Table-top mode
+
+Limit players
