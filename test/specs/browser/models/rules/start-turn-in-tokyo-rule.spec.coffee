@@ -5,6 +5,7 @@ describe 'App.StartTurnInTokyoRule', ->
 
   beforeEach ->
     game = App.Game.create()
+    game.startTurns()
 
   describe '#applies', ->
 

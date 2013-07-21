@@ -6,6 +6,7 @@ describe 'App.DiceHealthRule', ->
 
   beforeEach ->
     game = App.Game.create()
+    game.startTurns()
 
   describe '#applies', ->
 

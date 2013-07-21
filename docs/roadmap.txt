@@ -4,10 +4,10 @@ Fix new game link
 Real game config
  x- num player
  x- name
- - avatar
-Dice size on phone landscape
+ x- avatar
 Monster death
 Victory conditions
+Dice size on phone landscape
 Limit dice rolling
 
 1 card to buy

@@ -5,6 +5,7 @@ describe 'App.DiceAttackRule', ->
 
   beforeEach ->
     game = App.Game.create()
+    game.startTurns()
 
   describe '#applies', ->
 

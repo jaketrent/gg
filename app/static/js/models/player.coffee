@@ -10,6 +10,7 @@ App.Player = App.Model.extend
     @score = 0
     @energy = 0
     @isInTokyo = false
+    @isDead = false
     @set 'className', "players-item"
     # @name from constructor
 

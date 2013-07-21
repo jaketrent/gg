@@ -11,6 +11,7 @@ App.Game = App.Model.extend
       App.StartTurnInTokyoRule.create()
       App.DiceAttackRule.create()
       App.DiceHealthRule.create()
+      App.MonsterDeathRule.create()
       App.DiceScoreRule.create()
       App.DiceEnergyRule.create()
       App.DiceEnterTokyoRule.create()
@@ -31,7 +32,6 @@ App.Game = App.Model.extend
     @set 'currentPlayer', @players[@get 'currentPlayerIndx']
     @get('currentPlayer').addClassName 'is-current-player'
     @setPhase 'start-turn'
-    console.log 'starting turn'
 
   setPhase: (phase) ->
     @set 'currentPhase', phase

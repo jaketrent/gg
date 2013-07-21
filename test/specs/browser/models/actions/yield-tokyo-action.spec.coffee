@@ -5,6 +5,7 @@ describe 'App.YieldTokyoAction', ->
 
   beforeEach ->
     game = App.Game.create()
+    game.startTurns()
 
   describe 'Phases', ->
     it 'has a grantPhase of roll-dice', ->

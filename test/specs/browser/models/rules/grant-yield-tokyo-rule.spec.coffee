@@ -5,6 +5,7 @@ describe 'App.GrantYieldTokyoRule', ->
 
   beforeEach ->
     game = App.Game.create()
+    game.startTurns()
 
   describe '#applies', ->
 
