@@ -25,6 +25,9 @@ App.Player = App.Model.extend
   grantAction: (action) ->
     @set "actions.#{action.toString()}", action
 
+  revokeAction: (key) ->
+    @set "actions.#{key}", null
+
   act: (key, game) ->
     @get("actions.#{key}").exec game, @
 
