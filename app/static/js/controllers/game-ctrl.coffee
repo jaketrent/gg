@@ -7,6 +7,9 @@ App.GameController = Ember.ObjectController.extend
     @set('model.dice', die.roll() for die in @get('model.dice'))
     @incrementProperty 'model.rollNum'
 
+  addPlayer: ->
+    @get('model').addPlayer()
+
   startTurns: ->
     @get('model').startTurns()
 

@@ -24,6 +24,10 @@ App.Game = App.Model.extend
     @config = App.GameConfig.create()
     # @startTurns()
 
+  addPlayer: ->
+    configPlayers = @get 'config.players'
+    configPlayers.addObject App.Player.create { name: "Player #{configPlayers.length + 1}" }
+
   startTurns: ->
     @numPlayers ?= 2
     initiallyResetDice = App.ResetDiceRule.create().exec @

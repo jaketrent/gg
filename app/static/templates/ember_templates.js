@@ -124,12 +124,17 @@ function program10(depth0,data) {
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "player", "in", "config.players", {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</ul><div class=\"actions\"><button class=\"btn\" ");
+  data.buffer.push("<li class=\"players-config-item\"><button class=\"btn alt-btn add-player-btn\" ");
+  hashTypes = {'on': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "addPlayer", {hash:{
+    'on': ("click")
+  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Add Player</button><button class=\"btn\" ");
   hashTypes = {'on': "STRING"};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "startTurns", {hash:{
     'on': ("click")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Start Game</button></div></div><div class=\"start-turn roll-dice buy-cards end-turn\"><ul class=\"players-list\">");
+  data.buffer.push(">Start Game</button></li></ul></div><div class=\"start-turn roll-dice buy-cards end-turn\"><ul class=\"players-list\">");
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "player", "in", "players", {hash:{},inverse:self.program(3, program3, data),fn:self.program(5, program5, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
