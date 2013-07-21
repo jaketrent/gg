@@ -23,4 +23,11 @@ describe 'App.GrantYieldTokyoRule', ->
       rule.exec game
       aPlayer.hasAction('yieldTokyo').should.be.true
 
+    it 'will not grant yield to currentPlayer in tokyo', ->
+      currentPlayer = game.get('currentPlayer')
+      currentPlayer.set 'states.turn.hit', true
+      currentPlayer.set 'isInTokyo', true
+      rule.exec game
+      currentPlayer.hasAction('yieldTokyo').should.be.false
+
 
