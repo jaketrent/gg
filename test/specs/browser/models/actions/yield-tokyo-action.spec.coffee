@@ -29,5 +29,12 @@ describe 'App.YieldTokyoAction', ->
       aPlayer.act 'yieldTokyo', game
       aPlayer.hasAction('yieldTokyo').should.be.false
 
+    it 'gives current player 1 point for entering tokyo', ->
+      aPlayer = game.get('players')[1]
+      aPlayer.grantAction App.YieldTokyoAction.create()
+      aPlayer.act 'yieldTokyo', game
+      game.get('currentPlayer.score').should.eql 1
+
+
 
 

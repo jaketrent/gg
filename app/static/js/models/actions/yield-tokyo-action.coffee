@@ -12,6 +12,7 @@ App.YieldTokyoAction = App.Action.extend
     currentPlayer = game.get 'currentPlayer'
     currentPlayer.set 'isInTokyo', true
     currentPlayer.addClassName 'is-in-tokyo'
+    currentPlayer.addScore 1
 
   toString: ->
     "yieldTokyo"

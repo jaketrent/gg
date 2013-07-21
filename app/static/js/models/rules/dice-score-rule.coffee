@@ -22,6 +22,6 @@ App.DiceScoreRule = App.Rule.extend
       else if tally > 3
         score += face  + (tally - 3)
 
-    game.set 'currentPlayer.score', game.get('currentPlayer.score') + score
+    game.get('currentPlayer').addScore score
 
 

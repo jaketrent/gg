@@ -30,4 +30,3 @@ describe 'App.GrantYieldTokyoRule', ->
       rule.exec game
       currentPlayer.hasAction('yieldTokyo').should.be.false
 
-

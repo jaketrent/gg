@@ -32,3 +32,5 @@ App.Player = App.Model.extend
   act: (key, game) ->
     @get("actions.#{key}").exec game, @
 
+  addScore: (points) ->
+    @set 'score', @get('score') + points

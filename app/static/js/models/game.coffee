@@ -2,7 +2,6 @@ App.Game = App.Model.extend
 
   init: ->
     @numPlayers ?= 2
-    console.log "starting game with #{@numPlayers} players"
     @phases = [
       "start-turn"
       "roll-dice"
