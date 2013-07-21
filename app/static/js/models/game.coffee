@@ -10,6 +10,7 @@ App.Game = App.Model.extend
     ]
     @currentPhase = "start-turn"
     @rules = [
+      App.StartTurnInTokyoRule.create()
       App.DiceAttackRule.create()
       App.DiceHealthRule.create()
       App.DiceScoreRule.create()
