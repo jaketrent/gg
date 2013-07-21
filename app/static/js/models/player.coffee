@@ -15,15 +15,17 @@ App.Player = App.Model.extend
     @isWinner = false
     @isDead = false
 
+    @cards = []
+
     @set 'className', "players-item"
 
   setAvatar: (avatar) ->
     @addClassName avatar
 
-  receiveAttack: (attack) ->
+  receiveAttack: (attack, countAsHit=true) ->
     postAttackHealth = @get('health') - attack
     @set 'health', if postAttackHealth >= 0 then postAttackHealth else 0
-    @set 'states.turn.hit', attack > 0
+    @set 'states.turn.hit', countAsHit and (attack > 0)
 
   hasAction: (key) ->
     @get("actions.#{key}")?

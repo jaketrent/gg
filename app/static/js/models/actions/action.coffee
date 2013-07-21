@@ -5,7 +5,7 @@ App.Action = App.Model.extend
   expirePhase: 'roll-dice'
 
   # need explicit actor since non-current player can take actions
-  exec: (actor) ->
+  exec: (game, actor) ->
 
   toString: ->
     "action-slug"
