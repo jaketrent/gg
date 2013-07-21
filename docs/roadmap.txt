@@ -8,6 +8,7 @@ Real game config
 Dice size on phone landscape
 Monster death
 Victory conditions
+Limit dice rolling
 
 1 card to buy
 1 card to use

@@ -1,14 +1,12 @@
 App.Game = App.Model.extend
 
   init: ->
-    @numPlayers ?= 2
     @phases = [
       "start-turn"
       "roll-dice"
       # "buy-cards"
       "end-turn"
     ]
-    @currentPhase = "start-turn"
     @rules = [
       App.StartTurnInTokyoRule.create()
       App.DiceAttackRule.create()
@@ -22,22 +20,32 @@ App.Game = App.Model.extend
       App.ClearTurnStateRule.create()
       App.NextPlayerRule.create()
     ]
+    @setPhase 'start-game'
+    @config = App.GameConfig.create()
+    # @startTurns()
+
+  startTurns: ->
+    @numPlayers ?= 2
     initiallyResetDice = App.ResetDiceRule.create().exec @
-    @players = (App.Player.create { name: "Player #{num}" } for num in [1..@numPlayers])
+    @set 'players', (App.Player.create { name: player.get('name') } for player in @config.get('players'))
     @set 'currentPlayerIndx', 0
     @set 'currentPlayer', @players[@get 'currentPlayerIndx']
     @get('currentPlayer').addClassName 'is-current-player'
-    @set 'className', "game start-turn"
+    @setPhase 'start-turn'
+    console.log 'starting turn'
+
+  setPhase: (phase) ->
+    @set 'currentPhase', phase
+    @set 'className', "game #{phase}"
 
   nextPhase: ->
     @processRules()
 
     indx = @phases.indexOf(@get('currentPhase'))
     if indx < @phases.length - 1
-      @set 'currentPhase', @phases[indx + 1]
+      @setPhase @phases[indx + 1]
     else
-      @set 'currentPhase', @phases[0]
-    @set 'className', "game #{@get('currentPhase')}"
+      @setPhase @phases[0]
 
     console.log "advanced to phase: #{@get('currentPhase')}"
 

@@ -2,27 +2,39 @@ div class=this.className
   .game-header
     img.game-title src="/img/kingoftokyo.jpg" alt="King of Tokyo"
 
-  ul.players-list
-    each player in this.players
-      li class=player.className
-        .player-header
+  .game-config.start-game
+    ul.players-config-list
+      each player in this.config.players
+        li.players-config-item class=player.className
           .player-avatar
-          .player-name #{player.name}
-        ul.player-stats-list
-          li.player-stats-item
-            .icon.icon-die-H
-            player.health
-          li.player-stats-item
-            .icon.icon-die-E
-            player.energy
-          li.player-stats-item
-            .icon.icon-star
-            player.score
-        .player-status
-          if player.isInTokyo
-            .player-status-intokyo In Tokyo!
-          if player.actions.yieldTokyo
-            button.btn.btn-mini.yield-tokyo-btn href="#" click="actionBy 'yieldTokyo' player" Yield Tokyo
+          Ember.TextField class="player-name-input" valueBinding="player.name"
+      / li.players-item
+      /   a href="#" Add Player
+    .actions
+      button.btn click="startTurns" Start Game
+
+  .start-turn.roll-dice.buy-cards.end-turn
+    ul.players-list
+      each player in this.players
+        li class=player.className
+          .player-header
+            .player-avatar
+            .player-name #{player.name}
+          ul.player-stats-list
+            li.player-stats-item
+              .icon.icon-die-H
+              player.health
+            li.player-stats-item
+              .icon.icon-die-E
+              player.energy
+            li.player-stats-item
+              .icon.icon-star
+              player.score
+          .player-status
+            if player.isInTokyo
+              .player-status-intokyo In Tokyo!
+            if player.actions.yieldTokyo
+              button.btn.btn-mini.yield-tokyo-btn href="#" click="actionBy 'yieldTokyo' player" Yield Tokyo
 
   .roll-dice
     ul.dice

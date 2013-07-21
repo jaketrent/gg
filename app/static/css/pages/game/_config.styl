@@ -1,0 +1,33 @@
+.game-config
+  text-align: center
+
+  .players-config-list
+    max-width: 280px
+    margin: 0 auto
+
+  .players-config-item
+    box-sizing: border-box
+    position: relative
+    padding-left: 40px
+
+  .player-avatar
+    position: absolute
+    left: 0
+    top: 0
+    height: 30px
+    width: @height
+    background-size: cover
+    background-image: image-path('avatar.jpg')
+    background-repeat: no-repeat
+    background-position: center
+    border-radius: 50%
+
+  .player-name-input
+    box-sizing: border-box
+    width: 100%
+    display: inline-block
+    margin-bottom: ($base-line-height / 2)
+    height: 34px
+    border-radius: 5px
+    font-size: 16px
+    color: $gray

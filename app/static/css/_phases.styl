@@ -1,10 +1,15 @@
 .game
 
+  .start-game
   .start-turn
   .roll-dice
   .buy-cards
   .end-turn
     display: none
+
+  &.start-game
+    .start-game
+      display: block
 
   &.start-turn
     .start-turn
