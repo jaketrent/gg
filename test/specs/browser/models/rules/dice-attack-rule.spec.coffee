@@ -29,25 +29,31 @@ describe 'App.DiceAttackRule', ->
     it 'attacks all players in tokyo if outside tokyo', ->
       game.set 'currentPlayer.isInTokyo', false
       otherPlayer = game.get('players')[1]
-      otherPlayer.set 'isInTokyo' true
+      otherPlayer.set 'isInTokyo', true
 
       game.setDice ['A', '1', '2', 'A', 'A', 'E']
       rule.exec game
       player.get('health').should.eql(7) for player in game.getPlayersInTokyo()
 
     it 'doesnt let health go below 0', ->
-      player.set('health', 3) for player in game.getNonCurrentPlayers()
+      aPlayer = game.get('players')[1]
+      aPlayer.set 'isInTokyo', true
+      aPlayer.set 'health', 3
       game.setDice ['A', 'A', 'A', 'A', 'A', 'E']
       rule.exec game
-      player.get('health').should.eql 0 for player in game.getNonCurrentPlayers()
+      aPlayer.get('health').should.eql 0
 
     it 'sets states.turn.hit', ->
+      aPlayer = game.get('players')[1]
+      aPlayer.set 'isInTokyo', true
       game.setDice ['A', 'A', 'A', 'A', 'A', 'E']
       rule.exec game
-      player.get('states.turn.hit').should.be.true for player in game.getNonCurrentPlayers()
+      aPlayer.get('states.turn.hit').should.be.true
 
     it 'doesnt set states.turn.hit if no attack rolled', ->
+      aPlayer = game.get('players')[1]
+      aPlayer.set 'isInTokyo', true
       game.setDice ['1', 'E', '3', '2', '3', 'E']
       rule.exec game
-      player.get('states.turn.hit').should.be.false for player in game.getNonCurrentPlayers()
+      aPlayer.get('states.turn.hit').should.be.false
 

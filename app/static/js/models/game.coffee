@@ -4,7 +4,7 @@ App.Game = App.Model.extend
     @phases = [
       "start-turn"
       "roll-dice"
-      # "buy-cards"
+      "buy-cards"
       "end-turn"
     ]
     @rules = [
@@ -25,6 +25,7 @@ App.Game = App.Model.extend
     ]
     @setPhase 'start-game'
     @config = App.GameConfig.create()
+    @deck = App.EnergyDeck.create()
 
   startTurns: ->
     @numPlayers ?= 2

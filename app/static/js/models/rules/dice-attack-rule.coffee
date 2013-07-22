@@ -9,5 +9,3 @@ App.DiceAttackRule = App.Rule.extend
     targetPlayers = if game.get('currentPlayer.isInTokyo') then game.getPlayersOutsideTokyo() else game.getPlayersInTokyo()
     for player in targetPlayers
       player.receiveAttack(attack)
-      # if player.get('isInTokyo') and attack > 0
-      #   player.grantAction App.YieldTokyoAction.create()

@@ -15,7 +15,7 @@ App.Player = App.Model.extend
     @isWinner = false
     @isDead = false
 
-    @cards = []
+    @deck = App.Deck.create()
 
     @set 'className', "players-item"
 
@@ -43,3 +43,19 @@ App.Player = App.Model.extend
 
   addScore: (points) ->
     @set 'score', @get('score') + points
+
+  addEnergy: (cubes) ->
+    @set 'energy', @get('energy') + cubes
+
+  canAfford: (card) ->
+    card.cost <= @get 'energy'
+
+  buy: (deck, card) ->
+    deck.remove card
+    @deck.add card
+    @addEnergy -1 * card.get('cost')
+
+  useCard: (card, game) ->
+    @deck.remove card
+    card.exec game, @
+

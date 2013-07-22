@@ -30,6 +30,12 @@ div class=this.className
             li.player-stats-item
               .icon.icon-star
               player.score
+          ul.player-cards-list
+            each card in player.deck.cards
+              if card.permanent
+                li.player-cards-item title=card.name
+              else
+                li.player-cards-item title=card.name click="useCard card player"
           .player-status
             if player.isInTokyo
               .player-status-intokyo In Tokyo!
@@ -37,6 +43,14 @@ div class=this.className
               .player-status-winner You Won!
             if player.actions.yieldTokyo
               button.btn.btn-mini.yield-tokyo-btn href="#" click="actionBy 'yieldTokyo' player" Yield Tokyo
+
+  .buy-cards
+    h2 Cards
+    ul.cards-list
+      each card in this.deck.cards
+        li.cards-item
+          #{card.name} (#{card.cost})
+          button.btn.btn-mini click="buyCard card" Buy
 
   .roll-dice
     ul.dice
@@ -49,6 +63,8 @@ div class=this.className
   .actions
     .start-turn
       button.btn click="nextPhase" #{this.currentPlayer.name}, Start Turn
+    .buy-cards
+      button.btn click="nextPhase" Done w/ Cards
     .end-turn
       button.btn click="nextPhase" End Turn
 

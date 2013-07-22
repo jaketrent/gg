@@ -1,7 +1,7 @@
-describe 'App.JetFighersCard', ->
+describe 'App.JetFightersCard', ->
 
   game = null
-  card = App.JetFighersCard.create()
+  card = App.JetFightersCard.create()
 
   beforeEach ->
     game = App.Game.create()
