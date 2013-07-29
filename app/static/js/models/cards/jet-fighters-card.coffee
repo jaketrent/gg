@@ -1,4 +1,4 @@
-App.JetFightersCard = App.Card.extend
+App.JetFightersCard = App.EnergyCard.extend
 
   name: "Jet Fighters"
   cost: 5
