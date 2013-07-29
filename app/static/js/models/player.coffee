@@ -47,9 +47,6 @@ App.Player = App.Model.extend
   addEnergy: (cubes) ->
     @set 'energy', @get('energy') + cubes
 
-  canAfford: (card) ->
-    card.cost <= @get 'energy'
-
   buy: (deck, card) ->
     deck.remove card
     @deck.add card

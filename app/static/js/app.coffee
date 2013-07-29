@@ -1,5 +1,6 @@
 #= require components/jquery/jquery.js
 #= require components/handlebars/handlebars.js
+#= require components/Handlebars-Helpers/helpers.js
 #= require vendor/ember-1.0.0-rc.1.js
 #= require components/underscore/underscore.js
 #= require components/fastclick/lib/fastclick.js

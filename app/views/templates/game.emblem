@@ -48,9 +48,10 @@ div class=this.className
     h2 Cards
     ul.cards-list
       each card in this.deck.cards
-        li.cards-item
-          #{card.name} (#{card.cost})
-          button.btn.btn-mini click="buyCard card" Buy
+        if_lteq card.cost compare=currentPlayer.energy
+          li.cards-item
+            #{card.name} (#{card.cost})
+            button.btn.btn-mini click="buyCard card" Buy
 
   .roll-dice
     ul.dice

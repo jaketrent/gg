@@ -11,6 +11,7 @@
     "handlebars": "1.0.0-rc.3",
     "underscore": "~1.4.4",
     "fastclick": "~0.6.7",
-    "emblem": "latest"
+    "emblem": "latest",
+    "Handlebars-Helpers": "git://github.com/danharper/Handlebars-Helpers.git"
   }
 }
