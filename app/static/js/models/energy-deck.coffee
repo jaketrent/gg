@@ -8,8 +8,11 @@ App.EnergyDeck = App.Deck.extend
     @putOnDeck 3
 
   putOnDeck: (numCards) ->
+    cards = @get('cards')
     for num in [0..(numCards - 1)]
-      @get('cards')[num]?.set 'ondeck', true
+      cards[num]?.set 'ondeck', true
+    potentialLeft = cards.length - numCards < 0
+    @set 'numNotOnDeck', if potentialLeft then 0 else potentialLeft
 
   remove: (card) ->
     @_super card

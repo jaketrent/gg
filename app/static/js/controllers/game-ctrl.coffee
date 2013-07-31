@@ -20,8 +20,17 @@ App.GameController = Ember.ObjectController.extend
   actionBy: (key, player) ->
     player.act key, @get 'model'
 
+  expandCard: (card) ->
+    console.log 'expand card'
+    card.expand()
+
+  closeCard: (card) ->
+    console.log 'close card'
+    card.close()
+
   buyCard: (card) ->
-    @get('model.currentPlayer').buy @get('model.deck'), card
+    console.log 'buy card'
+    @get('model.currentPlayer').buyCard @get('model.deck'), card
 
   useCard: (card, player) ->
     player.useCard card, @get('model')

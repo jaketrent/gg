@@ -35,7 +35,7 @@ div class=this.className
               if card.permanent
                 li.player-cards-item title=card.name
               else
-                li.player-cards-item title=card.name click="useCard card player"
+                App.CardForPlayerView contentBinding="card" playerBinding="player"
           .player-status
             if player.isInTokyo
               .player-status-intokyo In Tokyo!
@@ -46,13 +46,13 @@ div class=this.className
 
   .buy-cards
     h2 Cards
-    ul.cards-list
+    ul.player-cards-list
+      li.cards-item
+        this.deck.numNotOnDeck
       each card in this.deck.cards
         if card.ondeck
           if_lteq card.cost compare=currentPlayer.energy
-            li.cards-item
-              #{card.name} (#{card.cost})
-              button.btn.btn-mini click="buyCard card" Buy
+            App.CardInDeckView contentBinding="card"
 
   .roll-dice
     ul.dice

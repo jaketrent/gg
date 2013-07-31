@@ -16,3 +16,4 @@ node_modules
 app/static/js/components
 .DS_Store
 .idea
+tmp

@@ -13,6 +13,58 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   
 });
 
+Ember.TEMPLATES["card-for-player"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [2,'>= 1.0.0-rc.3'];
+helpers = helpers || Ember.Handlebars.helpers; data = data || {};
+  var buffer = '', hashTypes, escapeExpression=this.escapeExpression;
+
+
+  data.buffer.push("<li ");
+  hashTypes = {'class': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'class': ("card.className")
+  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
+  data.buffer.push("><img class=\"player-cards-item-image\" ");
+  hashTypes = {'src': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'src': ("card.image")
+  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
+  data.buffer.push(" ");
+  hashTypes = {'title': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'title': ("card.name")
+  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
+  data.buffer.push(" /><button class=\"btn btn-mini player-cards-item-close-btn\">&times;</button><button class=\"btn player-cards-item-use-btn\">Use</button></li>");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES["card-in-deck"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [2,'>= 1.0.0-rc.3'];
+helpers = helpers || Ember.Handlebars.helpers; data = data || {};
+  var buffer = '', hashTypes, escapeExpression=this.escapeExpression;
+
+
+  data.buffer.push("<li ");
+  hashTypes = {'class': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'class': ("card.className")
+  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
+  data.buffer.push("><img class=\"player-cards-item-image\" ");
+  hashTypes = {'src': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'src': ("card.image")
+  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
+  data.buffer.push(" ");
+  hashTypes = {'title': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'title': ("card.name")
+  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
+  data.buffer.push(" /><button class=\"btn btn-mini player-cards-item-close-btn\">&times;</button><button class=\"btn player-cards-item-buy-btn\">Buy</button></li>");
+  return buffer;
+  
+});
+
 Ember.TEMPLATES["die"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Ember.Handlebars.helpers; data = data || {};
@@ -117,19 +169,12 @@ function program7(depth0,data) {
 
 function program9(depth0,data) {
   
-  var buffer = '', hashTypes;
-  data.buffer.push("<li class=\"player-cards-item\" ");
-  hashTypes = {'title': "STRING"};
-  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
-    'title': ("card.name")
-  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
-  data.buffer.push(" ");
-  hashTypes = {'on': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "useCard", "card", "player", {hash:{
-    'on': ("click")
-  },contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("></li>");
-  return buffer;
+  var hashTypes;
+  hashTypes = {'contentBinding': "STRING",'playerBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.CardForPlayerView", {hash:{
+    'contentBinding': ("card"),
+    'playerBinding': ("player")
+  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   }
 
 function program11(depth0,data) {
@@ -177,20 +222,11 @@ function program18(depth0,data) {
   }
 function program19(depth0,data) {
   
-  var buffer = '', hashTypes;
-  data.buffer.push("<li class=\"cards-item\"><div ");
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "card.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">(");
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "card.cost", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(")</div><button class=\"btn btn-mini\" ");
-  hashTypes = {'on': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "buyCard", "card", {hash:{
-    'on': ("click")
-  },contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Buy</button></li>");
-  return buffer;
+  var hashTypes;
+  hashTypes = {'contentBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.CardInDeckView", {hash:{
+    'contentBinding': ("card")
+  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   }
 
 function program21(depth0,data) {
@@ -225,7 +261,10 @@ function program21(depth0,data) {
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "player", "in", "players", {hash:{},inverse:self.program(3, program3, data),fn:self.program(5, program5, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</ul></div><div class=\"buy-cards\"><h2>Cards</h2><ul class=\"cards-list\">");
+  data.buffer.push("</ul></div><div class=\"buy-cards\"><h2>Cards</h2><ul class=\"player-cards-list\"><li class=\"cards-item\">");
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "deck.numNotOnDeck", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("</li>");
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "card", "in", "deck.cards", {hash:{},inverse:self.program(3, program3, data),fn:self.program(17, program17, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
