@@ -19,12 +19,7 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   var buffer = '', hashTypes, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<li ");
-  hashTypes = {'class': "STRING"};
-  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
-    'class': ("card.className")
-  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
-  data.buffer.push("><img class=\"player-cards-item-image\" ");
+  data.buffer.push("<img class=\"player-cards-item-image\" ");
   hashTypes = {'src': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'src': ("card.image")
@@ -34,7 +29,7 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'title': ("card.name")
   },contexts:[],types:[],hashTypes:hashTypes,data:data})));
-  data.buffer.push(" /><button class=\"btn btn-mini player-cards-item-close-btn\">&times;</button><button class=\"btn player-cards-item-use-btn\">Use</button></li>");
+  data.buffer.push(" /><button class=\"btn btn-mini player-cards-item-close-btn\">&times;</button><button class=\"btn player-cards-item-use-btn\">Use</button>");
   return buffer;
   
 });
@@ -45,12 +40,7 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   var buffer = '', hashTypes, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<li ");
-  hashTypes = {'class': "STRING"};
-  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
-    'class': ("card.className")
-  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
-  data.buffer.push("><img class=\"player-cards-item-image\" ");
+  data.buffer.push("<img class=\"player-cards-item-image\" ");
   hashTypes = {'src': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'src': ("card.image")
@@ -60,7 +50,7 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'title': ("card.name")
   },contexts:[],types:[],hashTypes:hashTypes,data:data})));
-  data.buffer.push(" /><button class=\"btn btn-mini player-cards-item-close-btn\">&times;</button><button class=\"btn player-cards-item-buy-btn\">Buy</button></li>");
+  data.buffer.push(" /><button class=\"btn btn-mini player-cards-item-close-btn\">&times;</button><button class=\"btn player-cards-item-buy-btn\">Buy</button>");
   return buffer;
   
 });

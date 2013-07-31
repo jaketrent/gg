@@ -1,12 +1,8 @@
-App.CardForPlayerView = Ember.View.extend
+App.CardForPlayerView = App.CardView.extend
   templateName: 'card-for-player'
 
   click: (evt) ->
-    console.log 'clicking card for player'
     $target = $(evt.target)
-    player = @get 'player'
-    console.log "player"
-    console.log player
 
     if $target.hasClass 'player-cards-item-close-btn'
       @get('controller').send 'closeCard', @get 'content'

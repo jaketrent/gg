@@ -1,4 +1,3 @@
-li class=card.className
-  img.player-cards-item-image src=card.image title=card.name
-  button.btn.btn-mini.player-cards-item-close-btn &times;
-  button.btn.player-cards-item-use-btn Use
+img.player-cards-item-image src=card.image title=card.name
+button.btn.btn-mini.player-cards-item-close-btn &times;
+button.btn.player-cards-item-use-btn Use

@@ -4,7 +4,7 @@ App.Card = App.Model.extend
   cost: 1
   permanent: false
   image: "/img/cards/default.jpg"
-  className: "player-cards-item"
+  isExpanded: false
 
   usable: (game) ->
     true
@@ -13,11 +13,9 @@ App.Card = App.Model.extend
   exec: (game, actor) ->
 
   expand: ->
-    console.log 'expando'
-    @addClassName "is-expanded"
+    @set 'isExpanded', true
 
   close: ->
-    console.log 'removo'
-    @removeClassName "is-expanded"
+    @set 'isExpanded', false
 
 

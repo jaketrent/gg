@@ -1,4 +1,4 @@
-App.CardInDeckView = Ember.View.extend
+App.CardInDeckView = App.CardView.extend
   templateName: 'card-in-deck'
 
   click: (evt) ->
@@ -8,7 +8,5 @@ App.CardInDeckView = Ember.View.extend
       @get('controller').send 'closeCard', @get 'content'
     else if $target.hasClass 'player-cards-item-buy-btn'
       @get('controller').send 'buyCard', @get 'content'
-#    else if $target.hasClass 'player-cards-item-use-btn'
-#      @get('controller').send 'useCard', @get 'content'
     else
       @get('controller').send 'expandCard', @get 'content'
