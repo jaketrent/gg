@@ -2,7 +2,7 @@
   clearfix()
 
   .players-item
-    position: relative
+    // position: relative
     box-sizing: border-box
     float: left
     width: 50%
@@ -20,11 +20,11 @@
 
     &.is-current-player
 
-      &:after
+      .player-avatar:after
         content: ''
         position: absolute
-        top: -2px
-        left: 15px
+        top: -10px
+        left: 5px
         animation: bounce 1.5s infinite
         border-top: 10px solid $brand-primary
         border-left: 10px solid transparent
