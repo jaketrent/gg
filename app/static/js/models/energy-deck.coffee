@@ -7,6 +7,7 @@ App.EnergyDeck = App.Deck.extend
       App.EnergizeCard.create()
       App.NuclearPowerPlantCard.create()
     ]
+    @numNotOnDeck = @cards.length
     @shuffle()
     @putOnDeck 3
 
@@ -14,8 +15,8 @@ App.EnergyDeck = App.Deck.extend
     cards = @get('cards')
     for num in [0..(numCards - 1)]
       cards[num]?.set 'isOnDeck', true
-    potentialLeft = cards.length - numCards < 0
-    @set 'numNotOnDeck', if potentialLeft then 0 else potentialLeft
+    potentialLeft = cards.length - numCards
+    @set 'numNotOnDeck', if potentialLeft < 0 then 0 else potentialLeft
 
   remove: (card) ->
     @_super card
