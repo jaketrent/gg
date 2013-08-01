@@ -205,7 +205,7 @@ function program18(depth0,data) {
   hashTypes = {'compare': "ID"};
   options = {hash:{
     'compare': ("currentPlayer.energy")
-  },inverse:self.program(3, program3, data),fn:self.program(19, program19, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data};
+  },inverse:self.program(21, program21, data),fn:self.program(19, program19, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.if_lteq),stack1 ? stack1.call(depth0, "card.cost", options) : helperMissing.call(depth0, "if_lteq", "card.cost", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   else { data.buffer.push(''); }
@@ -220,6 +220,12 @@ function program19(depth0,data) {
   }
 
 function program21(depth0,data) {
+  
+  
+  data.buffer.push("<span>not enough energy</span>");
+  }
+
+function program23(depth0,data) {
   
   var hashTypes;
   hashTypes = {'contentBinding': "STRING"};
@@ -260,7 +266,7 @@ function program21(depth0,data) {
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</ul></div><div class=\"roll-dice\"><ul class=\"dice\">");
   hashTypes = {};
-  stack1 = helpers.each.call(depth0, "die", "in", "dice", {hash:{},inverse:self.program(3, program3, data),fn:self.program(21, program21, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
+  stack1 = helpers.each.call(depth0, "die", "in", "dice", {hash:{},inverse:self.program(3, program3, data),fn:self.program(23, program23, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</ul><div class=\"actions\"><button class=\"btn alt-btn\" ");
   hashTypes = {'on': "STRING"};

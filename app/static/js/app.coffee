@@ -13,6 +13,8 @@
 #= require models/model
 #= require models/rules/rule
 #= require models/actions/action
+#= require models/cards/card
+#= require models/cards/energy-card
 #= require models/player
 #= require_tree models
 #= require_tree controllers

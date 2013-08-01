@@ -12,7 +12,6 @@ div class=this.className
         button.btn.alt-btn.add-player-btn click="addPlayer" Add Player
         button.btn click="startTurns" Start Game
 
-
   .start-turn.roll-dice.buy-cards.end-turn.game-end
     ul.players-list
       each player in this.players
@@ -53,6 +52,8 @@ div class=this.className
         if card.ondeck
           if_lteq card.cost compare=currentPlayer.energy
             App.CardInDeckView contentBinding="card"
+          else
+            span not enough energy
 
   .roll-dice
     ul.dice
