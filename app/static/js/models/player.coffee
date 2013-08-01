@@ -43,7 +43,13 @@ App.Player = App.Model.extend
     @get("actions.#{key}").exec game, @
 
   addScore: (points) ->
-    @set 'score', @get('score') + points
+    sumPoints = @get('score') + points
+    actualPoints = sumPoints
+    if sumPoints > 20
+      actualPoints = 20
+    if sumPoints < 0
+      actualPoints = 0
+    @set 'score', actualPoints
 
   addEnergy: (cubes) ->
     @set 'energy', @get('energy') + cubes
