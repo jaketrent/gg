@@ -4,6 +4,7 @@ App.EnergyDeck = App.Deck.extend
     @cards = [
       App.JetFightersCard.create()
       App.ApartmentBuildingCard.create()
+      App.EnergizeCard.create()
     ]
     @shuffle()
     @putOnDeck 3

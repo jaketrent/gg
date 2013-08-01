@@ -22,10 +22,13 @@ exports.files = [
   'app/static/js/models/model.coffee',
   'app/static/js/models/rules/rule.coffee',
   'app/static/js/models/actions/action.coffee',
+  'app/static/js/models/cards/card.coffee',
+  'app/static/js/models/cards/energy-card.coffee',
   'app/static/js/models/player.coffee',
   'app/static/js/models/**/*.coffee',
   'app/static/js/controllers/**/*.coffee',
   'app/static/js/routes/**/*.coffee',
+  'app/static/js/views/card.coffee',
   'app/static/js/views/**/*.coffee',
   'app/static/js/../templates/**/*.coffee',
 
