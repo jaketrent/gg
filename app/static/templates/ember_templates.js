@@ -233,7 +233,7 @@ function program19(depth0,data) {
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "player", "in", "players", {hash:{},inverse:self.program(3, program3, data),fn:self.program(5, program5, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</ul></div><div class=\"buy-cards\"><h2>Cards</h2><ul class=\"player-cards-list game-deck\"><li class=\"cards-item\">");
+  data.buffer.push("</ul></div><div class=\"buy-cards\"><h2>Cards</h2><ul class=\"player-cards-list game-deck\"><li class=\"player-cards-item deck-count\">");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "deck.numNotOnDeck", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("</li>");

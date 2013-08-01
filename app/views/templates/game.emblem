@@ -46,7 +46,7 @@ div class=this.className
   .buy-cards
     h2 Cards
     ul.player-cards-list.game-deck
-      li.cards-item
+      li.player-cards-item.deck-count
         this.deck.numNotOnDeck
       each card in this.deck.cards
         App.CardInDeckView contentBinding="card" playerBinding="currentPlayer"
