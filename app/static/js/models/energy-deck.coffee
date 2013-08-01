@@ -6,6 +6,7 @@ App.EnergyDeck = App.Deck.extend
       App.ApartmentBuildingCard.create()
       App.EnergizeCard.create()
       App.NuclearPowerPlantCard.create()
+      App.VastStormCard.create()
     ]
     @numNotOnDeck = @cards.length
     @shuffle()

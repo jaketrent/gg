@@ -1,11 +1,16 @@
-App.JetFightersCard = App.EnergyCard.extend
+App.VastStormCard = App.EnergyCard.extend
 
-  name: "Jet Fighters"
-  cost: 5
+  name: "Vast Storm"
+  cost: 6
   permanent: false
-  image: "/img/cards/jet-fighters.jpg"
+  image: "/img/cards/vast-storm.jpg"
 
   exec: (game, actor) ->
-    actor.addScore 5
-    actor.receiveAttack 4, false
+    depleteEnergy = (player) ->
+      startingEnergy = player.get('energy')
+      halfEnergy = Math.floor(startingEnergy / 2)
+      player.set 'energy', startingEnergy - halfEnergy
+
+    actor.addScore 2
+    depleteEnergy(player) for player in game.getPlayersBesides(actor)
 

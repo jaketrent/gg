@@ -63,11 +63,10 @@ App.Game = App.Model.extend
     @set 'dice', dice
 
   getPlayersBesides: (otherPlayer) ->
-    player for player, i in @get('players') when player isnt otherPlayer
+    player for player in @get('players') when player isnt otherPlayer
 
   getNonCurrentPlayers: ->
     @getPlayersBesides @get 'currentPlayer'
-#    player for player, i in @get('players') when i isnt @get 'currentPlayerIndx'
 
   isPlayerInTokyo: ->
     @getPlayersInTokyo().length > 0
