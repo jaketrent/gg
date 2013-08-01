@@ -62,8 +62,12 @@ App.Game = App.Model.extend
       dice[i].setActiveFace faceName
     @set 'dice', dice
 
+  getPlayersBesides: (otherPlayer) ->
+    player for player, i in @get('players') when player isnt otherPlayer
+
   getNonCurrentPlayers: ->
-    player for player, i in @get('players') when i isnt @get 'currentPlayerIndx'
+    @getPlayersBesides @get 'currentPlayer'
+#    player for player, i in @get('players') when i isnt @get 'currentPlayerIndx'
 
   isPlayerInTokyo: ->
     @getPlayersInTokyo().length > 0

@@ -11,13 +11,13 @@ App.EnergyDeck = App.Deck.extend
     @shuffle()
     @putOnDeck 3
 
-  putOnDeck: (numCards) ->
+  putOnDeck: (totalCardsOnDeck) ->
     cards = @get('cards')
-    for num in [0..(numCards - 1)]
+    for num in [0..(totalCardsOnDeck - 1)]
       cards[num]?.set 'isOnDeck', true
-    potentialLeft = cards.length - numCards
+    potentialLeft = cards.length - totalCardsOnDeck
     @set 'numNotOnDeck', if potentialLeft < 0 then 0 else potentialLeft
 
   remove: (card) ->
     @_super card
-    @putOnDeck 1
+    @putOnDeck 3
