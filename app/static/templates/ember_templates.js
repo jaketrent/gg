@@ -74,7 +74,7 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
 Ember.TEMPLATES["game"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Ember.Handlebars.helpers; data = data || {};
-  var buffer = '', stack1, hashTypes, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+  var buffer = '', stack1, hashTypes, escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
   
@@ -193,39 +193,15 @@ function program15(depth0,data) {
 
 function program17(depth0,data) {
   
-  var stack1, hashTypes;
-  hashTypes = {};
-  stack1 = helpers['if'].call(depth0, "card.ondeck", {hash:{},inverse:self.program(3, program3, data),fn:self.program(18, program18, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  else { data.buffer.push(''); }
-  }
-function program18(depth0,data) {
-  
-  var stack1, stack2, hashTypes, options;
-  hashTypes = {'compare': "ID"};
-  options = {hash:{
-    'compare': ("currentPlayer.energy")
-  },inverse:self.program(21, program21, data),fn:self.program(19, program19, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.if_lteq),stack1 ? stack1.call(depth0, "card.cost", options) : helperMissing.call(depth0, "if_lteq", "card.cost", options));
-  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  else { data.buffer.push(''); }
-  }
-function program19(depth0,data) {
-  
   var hashTypes;
-  hashTypes = {'contentBinding': "STRING"};
+  hashTypes = {'contentBinding': "STRING",'playerBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.CardInDeckView", {hash:{
-    'contentBinding': ("card")
+    'contentBinding': ("card"),
+    'playerBinding': ("currentPlayer")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   }
 
-function program21(depth0,data) {
-  
-  
-  data.buffer.push("<span>not enough energy</span>");
-  }
-
-function program23(depth0,data) {
+function program19(depth0,data) {
   
   var hashTypes;
   hashTypes = {'contentBinding': "STRING"};
@@ -257,7 +233,7 @@ function program23(depth0,data) {
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "player", "in", "players", {hash:{},inverse:self.program(3, program3, data),fn:self.program(5, program5, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</ul></div><div class=\"buy-cards\"><h2>Cards</h2><ul class=\"player-cards-list\"><li class=\"cards-item\">");
+  data.buffer.push("</ul></div><div class=\"buy-cards\"><h2>Cards</h2><ul class=\"player-cards-list game-deck\"><li class=\"cards-item\">");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "deck.numNotOnDeck", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("</li>");
@@ -266,7 +242,7 @@ function program23(depth0,data) {
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</ul></div><div class=\"roll-dice\"><ul class=\"dice\">");
   hashTypes = {};
-  stack1 = helpers.each.call(depth0, "die", "in", "dice", {hash:{},inverse:self.program(3, program3, data),fn:self.program(23, program23, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
+  stack1 = helpers.each.call(depth0, "die", "in", "dice", {hash:{},inverse:self.program(3, program3, data),fn:self.program(19, program19, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</ul><div class=\"actions\"><button class=\"btn alt-btn\" ");
   hashTypes = {'on': "STRING"};

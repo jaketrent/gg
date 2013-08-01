@@ -32,10 +32,15 @@
       width: 300px
 
     .player-cards-item-close-btn
-    .player-cards-item-buy-btn
     .player-cards-item-use-btn
       display: block
       position: absolute
+
+    &.is-affordable
+
+      .players-cards-item-buy-btn
+         display: block
+         position: absolute
 
     .player-cards-item-close-btn
       top: 10px
@@ -46,6 +51,12 @@
       bottom: 10px
       right: 10px
 
+.game-deck
+  .player-cards-item
+    display: none
+
+    &.is-on-deck
+      display: block
 
 
 

@@ -11,6 +11,7 @@ App.Player = App.Model.extend
     @score = 0
     @energy = 0
 
+
     @isInTokyo = false
     @isWinner = false
     @isDead = false
@@ -46,6 +47,10 @@ App.Player = App.Model.extend
 
   addEnergy: (cubes) ->
     @set 'energy', @get('energy') + cubes
+
+  addHealth: (hearts) ->
+    sumHealth = @get('health') + hearts
+    @set 'health', if sumHealth >= 10 then 10 else sumHealth
 
   buyCard: (deck, card) ->
     deck.remove card

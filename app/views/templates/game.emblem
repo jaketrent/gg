@@ -45,15 +45,11 @@ div class=this.className
 
   .buy-cards
     h2 Cards
-    ul.player-cards-list
+    ul.player-cards-list.game-deck
       li.cards-item
         this.deck.numNotOnDeck
       each card in this.deck.cards
-        if card.ondeck
-          if_lteq card.cost compare=currentPlayer.energy
-            App.CardInDeckView contentBinding="card"
-          else
-            span not enough energy
+        App.CardInDeckView contentBinding="card" playerBinding="currentPlayer"
 
   .roll-dice
     ul.dice

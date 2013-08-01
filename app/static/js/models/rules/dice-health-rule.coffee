@@ -9,6 +9,5 @@ App.DiceHealthRule = App.Rule.extend
       if die.isHealth()
         ++health
     currentPlayer = game.get('currentPlayer')
-    sumHealth = currentPlayer.get('health') + health
     if not currentPlayer.get('isInTokyo')
-      currentPlayer.set 'health', if sumHealth >= 10 then 10 else sumHealth
+      currentPlayer.addHealth health
