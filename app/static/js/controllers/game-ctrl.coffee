@@ -31,3 +31,6 @@ App.GameController = Ember.ObjectController.extend
 
   useCard: (card, player) ->
     player.useCard card, @get('model')
+
+  setActivePlayer: (player) ->
+    player.setActive @get('model')

@@ -34,6 +34,7 @@ App.Game = App.Model.extend
     @set 'currentPlayerIndx', 0
     @set 'currentPlayer', @players[@get 'currentPlayerIndx']
     @get('currentPlayer').addClassName 'is-current-player'
+    @get('currentPlayer').setActive @
     @setPhase 'start-turn'
 
   setPhase: (phase) ->

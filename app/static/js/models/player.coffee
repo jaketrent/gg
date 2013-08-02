@@ -23,6 +23,10 @@ App.Player = App.Model.extend
   setAvatar: (avatar) ->
     @addClassName avatar
 
+  setActive: (game) ->
+    player.removeClassName('is-active') for player in game.get('players')
+    @addClassName('is-active')
+
   receiveAttack: (attack, countAsHit=true) ->
     postAttackHealth = @get('health') - attack
     @set 'health', if postAttackHealth >= 0 then postAttackHealth else 0

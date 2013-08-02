@@ -108,7 +108,12 @@ function program5(depth0,data) {
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'class': ("player.className")
   },contexts:[],types:[],hashTypes:hashTypes,data:data})));
-  data.buffer.push("><div class=\"player-header\"><div class=\"player-avatar\"></div><div class=\"player-name\">");
+  data.buffer.push("><div class=\"player-header\"><div class=\"player-avatar\" ");
+  hashTypes = {'on': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "setActivePlayer", "player", {hash:{
+    'on': ("click")
+  },contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("></div><div class=\"player-name\">");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "player.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("</div></div><ul class=\"player-stats-list\"><li class=\"player-stats-item\"><div class=\"icon icon-die-H\"></div>");

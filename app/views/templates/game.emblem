@@ -17,7 +17,7 @@ div class=this.className
       each player in this.players
         li class=player.className
           .player-header
-            .player-avatar
+            .player-avatar click="setActivePlayer player"
             .player-name #{player.name}
           ul.player-stats-list
             li.player-stats-item
