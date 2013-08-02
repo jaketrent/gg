@@ -3,13 +3,16 @@ Fix:
 Survive turn in order to win
 
 Short:
-1 card to buy
-1 card to use
+x 1 card to buy
+x 1 card to use
 Small UI enhancements
+Limit dice rolls
+Limit players to 4
+Victory condition / end game
 Table-top mode
+Avatar chooser
 
 Longer:
-Avatar chooser
 Evolutions
 
 Longest:
