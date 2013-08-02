@@ -11,6 +11,9 @@ Limit players to 4
 Victory condition / end game
 Table-top mode
 Avatar chooser
+Streamline turns
+  - rm unneeded buttons?
+  - more than one phase at a time?
 
 Longer:
 Evolutions

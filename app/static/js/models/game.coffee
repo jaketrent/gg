@@ -28,7 +28,6 @@ App.Game = App.Model.extend
     @deck = App.EnergyDeck.create()
 
   startTurns: ->
-    @numPlayers ?= 2
     initiallyResetDice = App.ResetDiceRule.create().exec @
     @set 'players', @config.get 'players'
     @set 'currentPlayerIndx', 0
@@ -39,7 +38,7 @@ App.Game = App.Model.extend
 
   setPhase: (phase) ->
     @set 'currentPhase', phase
-    @set 'className', "game #{phase} players-#{@numPlayers}"
+    @set 'className', "game #{phase} players-#{@get('players.length')}"
 
   nextPhase: ->
     @processRules()

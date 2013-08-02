@@ -24,7 +24,7 @@ App.NextPlayerRule = App.Rule.extend
 
     game.set 'currentPlayer', nextPlayer
     game.set 'currentPlayerIndx', nextIndx
-    
+
     player.removeClassName 'is-current-player' for player in game.get('players')
     nextPlayer.addClassName 'is-current-player'
 
