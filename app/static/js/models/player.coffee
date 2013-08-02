@@ -24,8 +24,11 @@ App.Player = App.Model.extend
     @addClassName avatar
 
   setActive: (game) ->
-    player.removeClassName('is-active') for player in game.get('players')
+    for player in game.get('players')
+      player.removeClassName('is-active')
+      player.set 'isActive', false
     @addClassName('is-active')
+    @set 'isActive', true
 
   receiveAttack: (attack, countAsHit=true) ->
     postAttackHealth = @get('health') - attack
