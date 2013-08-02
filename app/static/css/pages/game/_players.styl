@@ -30,6 +30,9 @@
       .player-status
         visibility: visible
 
+      .player-cards-list
+        display: block
+
     &.is-current-player
 
       .player-avatar:after
@@ -65,8 +68,8 @@
   .player-name
     display: none
     padding-left: 40px
-    font-size: 24px
-    line-height: 30px
+    font-size: 15px
+    line-height: 1em
 
   .player-stats-item
     box-sizing: border-box
@@ -91,6 +94,9 @@
     text-align: center
     font-size: 10px
 
+  .player-cards-list
+    display: none
+    
 .game.players-2
 
   .players-item
@@ -98,3 +104,27 @@
 
     &.is-active
       width: 80%
+
+.game.players-3
+
+  .players-item
+    width: 20%
+
+    &.is-active
+      width: 60%
+
+.game.players-4
+
+  .players-item
+    width: 20%
+
+    &.is-active
+      width: 40%
+
+@media $bp-min-sm
+
+  .players-list
+
+    .player-name
+        font-size: 30px
+
