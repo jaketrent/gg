@@ -17,6 +17,19 @@
       .icon
         color: $white
 
+    &.is-active
+
+      .player-name
+        display: block
+
+      .player-stats-item
+        display: inline-block
+        width: 33%
+        padding-right: 5px
+
+      .player-status
+        visibility: visible
+
     &.is-current-player
 
       .player-avatar:after
@@ -85,15 +98,3 @@
 
     &.is-active
       width: 80%
-
-      .player-name
-        display: block
-
-      .player-stats-item
-        display: inline-block
-        width: 33%
-        padding-right: 5px
-
-      .player-status
-        visibility: visible
-
