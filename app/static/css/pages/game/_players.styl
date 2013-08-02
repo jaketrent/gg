@@ -2,7 +2,6 @@
   clearfix()
 
   .players-item
-    // position: relative
     box-sizing: border-box
     float: left
     width: 50%
@@ -41,6 +40,7 @@
 
   .player-header
     position: relative
+    min-height: 30px
 
   .player-avatar
     position: absolute
@@ -50,15 +50,16 @@
     width: @height
 
   .player-name
+    display: none
     padding-left: 40px
     font-size: 24px
     line-height: 30px
 
   .player-stats-item
     box-sizing: border-box
-    width: 33%
-    padding-right: 5px
-    display: inline-block
+    display: block
+    width: auto
+    padding: 0
 
   .icon
     display: inline-block
@@ -71,7 +72,28 @@
       color: #5f648a
 
   .player-status
+    visibility: hidden
     height: $base-line-height * 2
     line-height: $base-line-height
     text-align: center
     font-size: 10px
+
+.game.players-2
+
+  .players-item
+    width: 20%
+
+    &.is-current-player
+      width: 80%
+
+      .player-name
+        display: block
+
+      .player-stats-item
+        display: inline-block
+        width: 33%
+        padding-right: 5px
+
+      .player-status
+        visibility: visible
+

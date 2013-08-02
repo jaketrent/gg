@@ -38,7 +38,7 @@ App.Game = App.Model.extend
 
   setPhase: (phase) ->
     @set 'currentPhase', phase
-    @set 'className', "game #{phase}"
+    @set 'className', "game #{phase} players-#{@numPlayers}"
 
   nextPhase: ->
     @processRules()
