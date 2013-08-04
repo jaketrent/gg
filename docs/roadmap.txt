@@ -7,7 +7,7 @@ x 1 card to buy
 x 1 card to use
 Small UI enhancements
   x- card try
-  - dice tray - roll btn
+  X- dice tray - roll btn
   x- hold highlight
 Limit dice rolls
 Limit players to 4
