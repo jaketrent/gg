@@ -1,7 +1,7 @@
 .dice
   reset-list()
   clearfix()
-  padding: 10px 0 0 10px
+  padding: 10px
   background: $gray-lighter
 
 .die
@@ -11,7 +11,7 @@
   text-align: center
   color: $green
   cursor: pointer
-  height: 42px
+  height: 41px
   width: @height
   margin: 0 5px 5px 0
   line-height: @height
@@ -20,7 +20,8 @@
 
   &.is-onhold
     border: 3px solid $green
-    height: 36px
+    color: $green
+    height: 35px
     width: @height
     line-height: @height
 
@@ -31,7 +32,7 @@
       display: block
       width: 100%
       text-align: center
-      color: $green
+      color: $white
       text-transfrom: uppercase
       line-height: 1em
       font-size: 8px
@@ -48,7 +49,7 @@
     border-radius: 9px
 
     &.is-onhold
-      border: 4px solid $green
+      border-width: 4px
       height: 52px
       width: @height
       line-height: @height
@@ -60,7 +61,7 @@
 @media $bp-min-med
 
   .die
-    height: 83px
+    height: 81px
     width: @height
     margin: 0 10px 10px 0
     line-height: @height
@@ -68,8 +69,8 @@
     border-radius: 9px
 
     &.is-onhold
-      border: 6px solid $green
-      height: 71px
+      border-width: 6px
+      height: 69px
       width: @height
       line-height: @height
 

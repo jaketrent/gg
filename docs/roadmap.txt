@@ -6,6 +6,9 @@ Short:
 x 1 card to buy
 x 1 card to use
 Small UI enhancements
+  x- card try
+  - dice tray - roll btn
+  x- hold highlight
 Limit dice rolls
 Limit players to 4
 Victory condition / end game
@@ -16,6 +19,9 @@ Streamline turns
   - more than one phase at a time?
 
 Longer:
+Sound
+Animations
+Characters
 Evolutions
 
 Longest:
