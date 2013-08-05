@@ -9,6 +9,7 @@ App.Game = App.Model.extend
     ]
     @rules = [
       App.StartTurnInTokyoRule.create()
+      App.GrantRollDiceRule.create()
       App.DiceAttackRule.create()
       App.DiceHealthRule.create()
       App.MonsterDeathRule.create()
