@@ -42,15 +42,17 @@ App.Game = App.Model.extend
     @set 'className', "game #{phase} players-#{@get('players.length')}"
 
   nextPhase: ->
-    @processRules()
+    if @get('currentPhase') isnt 'end-game'
 
-    indx = @phases.indexOf(@get('currentPhase'))
-    if indx < @phases.length - 1
-      @setPhase @phases[indx + 1]
-    else
-      @setPhase @phases[0]
+      @processRules()
 
-    console.log "advanced to phase: #{@get('currentPhase')}"
+      indx = @phases.indexOf(@get('currentPhase'))
+      if indx < @phases.length - 1
+        @setPhase @phases[indx + 1]
+      else
+        @setPhase @phases[0]
+
+      console.log "advanced to phase: #{@get('currentPhase')}"
 
   processRules: ->
     for rule in @rules
