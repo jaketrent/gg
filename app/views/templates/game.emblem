@@ -9,7 +9,8 @@ div class=this.className
           .player-avatar
           Ember.TextField class="player-name-input" valueBinding="player.name"
       li.players-config-item
-        button.btn.alt-btn.add-player-btn click="addPlayer" Add Player
+        if this.config.canAddMorePlayers
+          button.btn.alt-btn.add-player-btn click="addPlayer" Add Player
         button.btn click="startTurns" Start Game
 
   .start-turn.roll-dice.buy-cards.end-turn.game-end

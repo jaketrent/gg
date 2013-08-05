@@ -17,6 +17,7 @@ App.GameConfig = App.Model.extend
     @players = []
     for num in [0..1]
       @addPlayer()
+    @canAddMorePlayers = true
 
   addPlayer: ->
     players = @get('players')
@@ -26,3 +27,4 @@ App.GameConfig = App.Model.extend
     if meta?
       newPlayer.setAvatar meta.avatar
     players.addObject newPlayer
+    @set 'canAddMorePlayers', players.length < 4
