@@ -6,7 +6,7 @@ App.RollDiceAction = App.Action.extend
   rollNum: 1
 
   exec: (game, actor) ->
-    game.set 'dice', die.roll() for die in game.get('dice')
+    game.set('dice', die.roll() for die in game.get('dice'))
     game.incrementProperty 'rollNum'
     @incrementProperty 'rollNum'
 

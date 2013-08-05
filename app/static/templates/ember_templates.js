@@ -254,11 +254,11 @@ function program19(depth0,data) {
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "nextPhase", {hash:{
     'on': ("click")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Done Rolling</button><button class=\"btn\" ");
+  data.buffer.push(">Done Rolling</button><button class=\"btn rollDice\" ");
   hashTypes = {'on': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "rollDice", {hash:{
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "actionBy", "rollDice", "currentPlayer", {hash:{
     'on': ("click")
-  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  },contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(">Roll # ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "rollNum", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
