@@ -5,11 +5,11 @@ Survive turn in order to win
 Short:
 x 1 card to buy
 x 1 card to use
-Small UI enhancements
+x Small UI enhancements
   x- card try
   X- dice tray - roll btn
   x- hold highlight
-Limit dice rolls
+x Limit dice rolls
 Limit players to 4
 Victory condition / end game
 Table-top mode
