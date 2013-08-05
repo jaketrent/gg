@@ -302,7 +302,10 @@ function program23(depth0,data) {
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "nextPhase", {hash:{
     'on': ("click")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">End Turn</button></div></div><div class=\"debug\">DEBUG: Turn: ");
+  data.buffer.push(">End Turn</button></div></div><div class=\"end-game\"><div class=\"banner victory-banner\"><span>");
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "currentPlayer.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(" is the Winner!</span></div></div><div class=\"debug\">DEBUG: Turn: ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "currentPlayer.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(", Phase: ");

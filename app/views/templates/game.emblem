@@ -69,6 +69,10 @@ div class=this.className
     .end-turn
       button.btn click="nextPhase" End Turn
 
+  .end-game
+    .banner.victory-banner
+      span #{this.currentPlayer.name} is the Winner!
+
   div.debug
     | DEBUG: Turn: #{this.currentPlayer.name}, Phase: #{this.currentPhase} (
     a click="nextPhase" Next

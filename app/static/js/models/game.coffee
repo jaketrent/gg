@@ -37,6 +37,10 @@ App.Game = App.Model.extend
     @get('currentPlayer').setActive @
     @setPhase 'start-turn'
 
+    # TODO: Remove after endgame test
+    @setPhase 'end-game'
+    @set 'currentPlayer.isWinner', true
+
   setPhase: (phase) ->
     @set 'currentPhase', phase
     @set 'className', "game #{phase} players-#{@get('players.length')}"
