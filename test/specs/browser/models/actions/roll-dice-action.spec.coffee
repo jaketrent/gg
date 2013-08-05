@@ -24,7 +24,7 @@ describe 'App.RollDiceAction', ->
 
     it 'rolls all dice', ->
       currentPlayer.act 'rollDice', game
-      expect(die.get('activeFace')).to.not.be.undefined "" for die in game.get('dice')
+      die.isRolled().should.be.true for die in game.get('dice')
       game.get('rollNum').should.eql 2
 
     it 'self expires after 3 rolls', ->

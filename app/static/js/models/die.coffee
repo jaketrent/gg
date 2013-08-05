@@ -54,3 +54,6 @@ App.Die = App.Model.extend
 
   isAttack: ->
     @activeFace?.isAttack()
+
+  isRolled: ->
+    @activeFace?

@@ -10,7 +10,7 @@ x Small UI enhancements
   X- dice tray - roll btn
   x- hold highlight
 x Limit dice rolls
-Limit players to 4
+x Limit players to 4
 Victory condition / end game
 Table-top mode
 Avatar chooser
