@@ -57,7 +57,8 @@ div class=this.className
         App.DieView contentBinding="die"
     .actions
       button.btn.alt-btn click="nextPhase" Done Rolling
-      button.btn.rollDice click="actionBy 'rollDice' currentPlayer" Roll # {{this.rollNum}}
+      if currentPlayer.actions.rollDice
+        button.btn.rollDice click="actionBy 'rollDice' currentPlayer" Roll # {{this.rollNum}}
 
   .actions
     .start-turn

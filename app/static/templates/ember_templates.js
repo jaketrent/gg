@@ -215,6 +215,21 @@ function program19(depth0,data) {
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   }
 
+function program21(depth0,data) {
+  
+  var buffer = '', hashTypes;
+  data.buffer.push("<button class=\"btn rollDice\" ");
+  hashTypes = {'on': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "actionBy", "rollDice", "currentPlayer", {hash:{
+    'on': ("click")
+  },contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Roll # ");
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "rollNum", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("</button>");
+  return buffer;
+  }
+
   data.buffer.push("<div ");
   hashTypes = {'class': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
@@ -254,15 +269,11 @@ function program19(depth0,data) {
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "nextPhase", {hash:{
     'on': ("click")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Done Rolling</button><button class=\"btn rollDice\" ");
-  hashTypes = {'on': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "actionBy", "rollDice", "currentPlayer", {hash:{
-    'on': ("click")
-  },contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Roll # ");
+  data.buffer.push(">Done Rolling</button>");
   hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "rollNum", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("</button></div></div><div class=\"actions\"><div class=\"start-turn\"><button class=\"btn\" ");
+  stack1 = helpers['if'].call(depth0, "currentPlayer.actions.rollDice", {hash:{},inverse:self.program(3, program3, data),fn:self.program(21, program21, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("</div></div><div class=\"actions\"><div class=\"start-turn\"><button class=\"btn\" ");
   hashTypes = {'on': "STRING"};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "nextPhase", {hash:{
     'on': ("click")
