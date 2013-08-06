@@ -13,7 +13,7 @@ div class=this.className
           button.btn.alt-btn.add-player-btn click="addPlayer" Add Player
         button.btn click="startTurns" Start Game
 
-  .start-turn.roll-dice.buy-cards.end-turn.game-end
+  .start-turn.roll-dice.buy-cards.end-turn
     ul.players-list
       each player in this.players
         li class=player.className
@@ -71,7 +71,15 @@ div class=this.className
 
   .end-game
     .banner.victory-banner
-      span #{this.currentPlayer.name} is the Winner!
+      div class=winningPlayer.className
+        .player-header
+          .player-avatar
+          .banner-headline
+            .player-name #{winningPlayer.name}
+            .banner-status is the Winner!
+
+    / .actions
+    /   button.btn click="startTurns" Start Over
 
   div.debug
     | DEBUG: Turn: #{this.currentPlayer.name}, Phase: #{this.currentPhase} (

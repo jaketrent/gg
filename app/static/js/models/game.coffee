@@ -23,6 +23,7 @@ App.Game = App.Model.extend
       App.ResetDiceRule.create()
       App.ClearTurnStateRule.create()
       App.NextPlayerRule.create()
+      App.EndGameRule.create()
     ]
     @setPhase 'start-game'
     @config = App.GameConfig.create()
@@ -37,17 +38,12 @@ App.Game = App.Model.extend
     @get('currentPlayer').setActive @
     @setPhase 'start-turn'
 
-    # TODO: Remove after endgame test
-    @setPhase 'end-game'
-    @set 'currentPlayer.isWinner', true
-
   setPhase: (phase) ->
     @set 'currentPhase', phase
     @set 'className', "game #{phase} players-#{@get('players.length')}"
 
   nextPhase: ->
     if @get('currentPhase') isnt 'end-game'
-
       @processRules()
 
       indx = @phases.indexOf(@get('currentPhase'))
@@ -57,6 +53,8 @@ App.Game = App.Model.extend
         @setPhase @phases[0]
 
       console.log "advanced to phase: #{@get('currentPhase')}"
+    else
+      console.log "do not advanced phases, already: #{@get('currentPhase')}"
 
   processRules: ->
     for rule in @rules

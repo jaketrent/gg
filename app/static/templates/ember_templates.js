@@ -260,7 +260,7 @@ function program23(depth0,data) {
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "startTurns", {hash:{
     'on': ("click")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Start Game</button></li></ul></div><div class=\"start-turn roll-dice buy-cards end-turn game-end\"><ul class=\"players-list\">");
+  data.buffer.push(">Start Game</button></li></ul></div><div class=\"start-turn roll-dice buy-cards end-turn\"><ul class=\"players-list\">");
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "player", "in", "players", {hash:{},inverse:self.program(3, program3, data),fn:self.program(7, program7, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
@@ -302,10 +302,15 @@ function program23(depth0,data) {
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "nextPhase", {hash:{
     'on': ("click")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">End Turn</button></div></div><div class=\"end-game\"><div class=\"banner victory-banner\"><span>");
+  data.buffer.push(">End Turn</button></div></div><div class=\"end-game\"><div class=\"banner victory-banner\"><div ");
+  hashTypes = {'class': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'class': ("winningPlayer.className")
+  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
+  data.buffer.push("><div class=\"player-header\"><div class=\"player-avatar\"></div><div class=\"banner-headline\"><div class=\"player-name\">");
   hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "currentPlayer.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(" is the Winner!</span></div></div><div class=\"debug\">DEBUG: Turn: ");
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "winningPlayer.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("</div><div class=\"banner-status\">is the Winner!</div></div></div></div></div></div><div class=\"debug\">DEBUG: Turn: ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "currentPlayer.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(", Phase: ");

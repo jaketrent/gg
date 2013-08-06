@@ -9,4 +9,3 @@ App.WinByLastStandingRule = App.Rule.extend
       notDeadPlayers[0].set 'isWinner', true
       notDeadPlayers[0].addClassName 'is-winner'
       game.set 'winningPlayer', notDeadPlayers[0]
-      game.set 'currentPhase', 'game-end'

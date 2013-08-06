@@ -8,4 +8,3 @@ App.WinByScoreRule = App.Rule.extend
       player.set 'isWinner', true
       player.addClassName 'is-winner'
       game.set 'winningPlayer', player
-      game.set 'currentPhase', 'game-end'

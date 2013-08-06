@@ -33,7 +33,3 @@ describe 'App.WinByScoreRule', ->
     it 'sets winningPlayer on game', ->
       rule.exec game
       game.get('winningPlayer').should.eql aPlayer
-
-    it 'sets game phase to end-game', ->
-      rule.exec game
-      game.get('currentPhase').should.eql 'game-end'
