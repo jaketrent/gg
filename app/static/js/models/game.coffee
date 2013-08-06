@@ -43,9 +43,8 @@ App.Game = App.Model.extend
     @set 'className', "game #{phase} players-#{@get('players.length')}"
 
   nextPhase: ->
+    @processRules()
     if @get('currentPhase') isnt 'end-game'
-      @processRules()
-
       indx = @phases.indexOf(@get('currentPhase'))
       if indx < @phases.length - 1
         @setPhase @phases[indx + 1]
